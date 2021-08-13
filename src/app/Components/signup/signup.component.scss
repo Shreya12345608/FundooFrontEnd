@@ -1,0 +1,47 @@
+.divcenter{
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 8px;
+    max-width: 700px;
+    border: 1px solid gray;
+    padding: 10px; 
+    padding-top: 50px;
+    background-color: #F5F5F5; 
+    font-size: larger;
+    display: flex;
+
+    }
+
+.colorfundoo{
+    font-weight: 550;
+    font-size: 15pt;
+    font-family: sans-serif;
+  }
+  .colorfundooF{
+    font-weight: 500;
+    font-size: 20pt;
+  }
+.createCAccount{
+    font-size: 18px;
+    padding-top: 15px;
+    font-weight: 400;
+    color: #202124;
+    font-weight: 400;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .name{
+    display: flex;
+    flex-direction: row;
+    width: 354px;
+    gap: 5%;
+  }
+  .form-item{
+    width: min-content;
+  }
+ 
+  .email{
+      width: 430px;
+  }
