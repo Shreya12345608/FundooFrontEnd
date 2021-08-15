@@ -1,28 +1,51 @@
-
 <div class="divcenter">
 
-  <div class ="center">
+  <div class="center">
     <mat-card-title>
-        <p >
-          <span class="colorF" style="color:#4285F4">F</span>
-          <span class="colorfundoo" style="color:#4285F4">UN</span>
-          <span class="colorfundoo" style="color:#EA4335">DOO</span>
-        </p>
+      <p>
+        <span class="colorF" style="color:#4285F4">F</span>
+        <span class="colorfundoo" style="color:#4285F4">UN</span>
+        <span class="colorfundoo" style="color:#EA4335">DOO</span>
+      </p>
     </mat-card-title>
-</div>
-  <div class="main signin">
+  </div>
+  <div class="signin center">
     <span>Sign in</span>
   </div>
-  <div class="main usefundoo">  
-    <span>Use your FunDoo Account</span>
+  <div class="center usefundoo">
+    <span>to continue to Fundoo</span>
 
   </div>
-  <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
+  <div>
+    <mat-form-field class="email" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Enter Your Email">
     </mat-form-field>
-  </p>
-</div>
+    <div class="name form-item">
+      <mat-form-field class="email" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" required>
+        <!-- <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div> -->
+          <mat-hint class="pass-hint"  >Use 8 or more characters with a mix of letters, numbers at least 1 uppercase, 1 digit & 1 symbol
+          </mat-hint>
+        </mat-form-field>
+         </div>
+         
+          <div class=" center submit-btn">
+            <button type="submit" mat-raised-button color="primary" >Login</button>
+          </div>
+          <div class="btns">
+            <div class="create">
+              <a routerLink="/signup" >
+              Create account
+              </a>
+            </div>
+            <div class="forget">
+              <a routerLink="/forget" >
+              Forgot password?
+              </a>
+            </div>
+  </div>
+  </div>

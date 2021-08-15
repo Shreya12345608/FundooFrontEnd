@@ -1,1 +1,36 @@
-<p>forget works!</p>
+<div class="divcenter">
+<div class="center">
+    <mat-card-title>
+        <p>
+            <span class="colorF" style="color:#4285F4">F</span>
+            <span class="colorfundoo" style="color:#4285F4">UN</span>
+            <span class="colorfundoo" style="color:#EA4335">DOO</span>
+        </p>
+    </mat-card-title>
+</div>
+<div class="signin center"> 
+    <span>Account recovery</span>
+</div>
+<div class="usefundoo center">
+    <span>Enter your email to get password reset link</span>
+</div>
+<form class="child loginForm" >
+<div class="email">
+    <mat-form-field class="email" appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" required >
+</mat-form-field>
+</div>
+<div class="btns">
+    <div class="create">
+        <a [routerLink]="['/signup']">
+            Create account
+        </a>
+    </div>
+    <div class="submit-btn">
+
+        <button type="submit" mat-raised-button color="primary" >Submit</button>
+    </div>
+</div>
+</form>
+</div>

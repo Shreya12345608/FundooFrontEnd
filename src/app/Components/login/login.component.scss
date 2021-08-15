@@ -1,41 +1,46 @@
 .divcenter{
-  margin: auto;
-  margin-top: 30px;
-  border-radius: 15px;
-  width: 60%;
-  border: 1px solid #73AD21;
-  padding: 10px; 
-  background-color: #F5F5F5;
+  display: flex;
+    flex-direction: column;
+    border: 1px solid #DADCE0;
+    border-radius: 7px;
+    width: 400px;
+    padding: 30px;
+    background-color: #F5F5F5; 
+    margin: auto;
+    margin-top: 55px;
+    height: auto;
+      min-height: 450px;
+      align-content: center;
   }
 
-  .center{ margin: auto;
-      width: 50%;
-      padding-left: 35%;
-  padding-top: 35px; }
-
-  .color-fundoo{
+  .center{ margin: 2px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  .colorfundoo{
       font-weight: 550;
       font-size: 15px;
-      font-family: 'Courier New', Courier, monospace;
+      font-family:'Brush Script MT', cursive;
+      
     }
     .colorF{
       font-weight: 500;
       font-size: 30px;
+      font-family: 'Courier New', monospace;
     }
 
-  .main{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
   .signin{
-  color: #202124;
-  padding-right: 35px;
-  padding-top: 8px;
-  font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
-  font-size: 24px;
+    color: #202124;
+    padding-bottom: 0;
+    padding-top: 5px;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    font-size: 24px;
+    font-weight: 400;
     line-height: 1.3333;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 .usefundoo{
   color: #2d2f35;
@@ -46,5 +51,29 @@
   padding-top: 8px;
   font-weight: 400;
 }
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: green !important;
+ }
 
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: green !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: green !important;;
+}
+.email{
+  width: 400px;
+  color: #2d2f35;
+  font-size: 16px;
+  padding-bottom: 0;
+  padding-top: 10px;
+}
   
+.submit-btn{
+  padding-top: 30px;
+ 
+}
