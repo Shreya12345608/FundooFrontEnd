@@ -1,5 +1,5 @@
-<div class="divcenter">
-  <div class="div60">
+<section class="divcenter">
+  <div>
     <div>
       <span class="colorfundooF" style="color:#4285F4">F</span>
       <span class="colorfundoo" style="color:#4285F4">un</span>
@@ -8,40 +8,76 @@
     </div>
 
 
-    <form id="RegisterForm">
+    <form id="registerForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div id="form-container" class="form-container">
         <div class="name form-item ">
           <mat-form-field class="firstname" appearance="outline">
             <mat-label>First Name</mat-label>
-            <input matInput placeholder="First Name">
+            <input matInput placeholder="First Name" formControlName="firstName" />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+              <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Last Name">
+            <input matInput placeholder="Last Name" formControlName="lastName">
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
           </mat-form-field>
         </div>
         <div>
-          <mat-form-field class="email" appearance="fill">
+          <mat-form-field class="email" appearance="outline">
             <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="pat@example.com" required>
+            <input matInput placeholder="pat@example.com" required formControlName="email">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            </div>
+            <mat-hint>You can use letters, numbers & periods</mat-hint>
           </mat-form-field>
         </div>
         <div class="name form-item">
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="Password" required>
-
+            <input matInput placeholder="Password" formControlName="password" required>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Confirm</mat-label>
-            <input matInput placeholder="Confirm" required>
+            <input matInput placeholder="confirmPassword" formControlName="confirmPassword" required>
+            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+              <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+              <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+            </div>
+            <!-- <mat-hint class="pass-hint">Use 8 or more characters with a mix of letters, numbers at least 1 uppercase, 1
+              digit & 1 symbol</mat-hint> -->
           </mat-form-field>
 
+        </div>
+        <div>
+          <section>
+            <mat-checkbox class="checkbox">Show password</mat-checkbox>
+          </section>
+        </div>
+        <div class="btns">
+          <div class="login">
+            <a routerLink="Login"> Login instead </a>
+            <span class="padding"> <button type="button"(click)="onSubmit()" mat-raised-button color="primary">Next</button></span>
+
+          </div>
         </div>
       </div>
     </form>
 
 
   </div>
-  <div class="div40">aaaaaaaaaaaa</div>
-</div>
+  <div class="dash">
+    <img class="imagess" height="244" src="assets\images\account.jpg" alt="" srcset="">
+    <span class="dasp-span">One account. All of FunDooNotes working for you.</span>
+  </div>
+  <!-- <div><img src="../../../assets/images/account.svg"></div> -->
+</section>

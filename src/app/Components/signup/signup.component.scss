@@ -4,7 +4,7 @@
     border-radius: 8px;
     max-width: 700px;
     border: 1px solid gray;
-    padding: 10px; 
+    padding: 50px; 
     padding-top: 50px;
     background-color: #F5F5F5; 
     font-size: larger;
@@ -15,11 +15,11 @@
 .colorfundoo{
     font-weight: 550;
     font-size: 15pt;
-    font-family: sans-serif;
+    font-family: OCR A StdLuminari, fantasy;
   }
   .colorfundooF{
     font-weight: 500;
-    font-size: 20pt;
+    font-size: 30px;
   }
 .createCAccount{
     font-size: 18px;
@@ -45,3 +45,54 @@
   .email{
       width: 430px;
   }
+  .imagess{
+    padding-top: 50px;
+    width: 244;
+    height: 244;
+    }
+    .checkbox{  
+      display: block;
+      position: relative;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+      .dash-icon, .dash{
+        width:"244";
+        height: "244";
+        text-align: center;
+        align-content: center;
+      }
+      button{
+        background-color: #1a73e8;
+        font-size: inherit;
+        letter-spacing: 0px;
+        opacity: 1;
+        font-weight: 500;
+        min-width: 100px;
+        border-radius:2px;
+        margin-top: 30px;
+      }
+
+      .login{
+        align-self: center;
+        text-decoration:none;
+      }
+      .padding{
+        padding-left: 180px;
+      }
+      ::ng-deep .mat-focused .mat-form-field-label {
+        /*change color of label*/
+        color: green !important;
+       }
+      
+       ::ng-deep.mat-form-field-underline {
+        /*change color of underline*/
+        background-color: green !important;
+      } 
+      
+      ::ng-deep.mat-form-field-ripple {
+       /*change color of underline when focused*/
+       background-color: green !important;;
+      }
