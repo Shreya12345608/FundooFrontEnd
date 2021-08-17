@@ -11,14 +11,14 @@
     <form id="registerForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div id="form-container" class="form-container">
         <div class="name form-item ">
-          <mat-form-field class="firstname" appearance="outline">
+          <mat-form-field class="firstname" appearance="outline" fxFlex="100" fxFlex.xs="100">
             <mat-label>First Name</mat-label>
             <input matInput placeholder="First Name" formControlName="firstName" />
             <div *ngIf="submitted && f.firstName.errors" class="error">
               <div *ngIf="f.firstName.errors.required">First Name is required</div>
             </div>
           </mat-form-field>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" fxFlex.xs="100">
             <mat-label>Last Name</mat-label>
             <input matInput placeholder="Last Name" formControlName="lastName">
             <div *ngIf="submitted && f.lastName.errors" class="error">
@@ -27,7 +27,7 @@
           </mat-form-field>
         </div>
         <div>
-          <mat-form-field class="email" appearance="outline">
+          <mat-form-field class="email" appearance="outline" fxFlex="91" fxFlex.xs="100">
             <mat-label>Enter your email</mat-label>
             <input matInput placeholder="pat@example.com" required formControlName="email">
             <div *ngIf="submitted && f.email.errors" class="error">
@@ -38,32 +38,29 @@
           </mat-form-field>
         </div>
         <div class="name form-item">
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" fxFlex.xs="100">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="Password" formControlName="password" required>
+            <input matInput placeholder="Password" [type]="show ? 'text' : 'password'" formControlName="password"  required>
             <div *ngIf="submitted && f.password.errors" class="error">
               <div *ngIf="f.password.errors.required">Password is required</div>
               <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
             </div>
           </mat-form-field>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" fxFlex="70" fxFlex.xs="100">
             <mat-label>Confirm</mat-label>
-            <input matInput placeholder="confirmPassword" formControlName="confirmPassword" required>
+            <input [type]="show ? 'text' : 'password'" matInput placeholder="confirmPassword" formControlName="confirmPassword" required>
             <div *ngIf="submitted && f.confirmPassword.errors" class="error">
               <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
               <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
             </div>
-           
-          </mat-form-field>
-          
-          
+          </mat-form-field> 
         </div>
         <!-- <mat-hint class="pass-hint">Use 8 or more characters with a mix of letters, numbers at least 1 uppercase, 1
           digit & 1 symbol</mat-hint>  -->
 
         <div>
           <section>
-            <mat-checkbox class="checkbox">Show password</mat-checkbox>
+            <mat-checkbox class="checkbox" (click)="password()" >Show password</mat-checkbox>
           </section>
         </div>
         <div class="btns">
