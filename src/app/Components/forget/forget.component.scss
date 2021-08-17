@@ -46,6 +46,11 @@
     color: green !important;
    }
   
+   .error {
+    color:crimson;
+    font-size: 12px;
+    margin-left: 10px;
+  }
    ::ng-deep.mat-form-field-underline {
     /*change color of underline*/
     background-color: green !important;
@@ -64,5 +69,12 @@
   }
     
   .submit-btn{
-    padding-top: 30px;
+    padding-top: 30px;   
+}
+.ahrefbutton{
+  font-size: 16px;
+  min-width: 120px;
+  text-align: center;
+  text-decoration: none;
+
 }

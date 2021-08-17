@@ -1,0 +1,113 @@
+.divcenter{
+    display: flex;
+      flex-direction: column;
+      border: 1px solid #DADCE0;
+      border-radius: 7px;
+      width: 400px;
+      padding: 30px;
+      background-color: #F5F5F5; 
+      margin: auto;
+      margin-top: 55px;
+      height: auto;
+        min-height: 450px;
+        align-content: center;
+    }
+  
+    .center{ margin: 2px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .colorfundoo{
+        font-weight: 550;
+        font-size: 15px;
+        font-family:'Brush Script MT', cursive;
+        
+      }
+      .colorF{
+        font-weight: 500;
+        font-size: 30px;
+        font-family: 'Courier New', monospace;
+      }
+      .name{
+        display: flex;
+        flex-direction: row;
+        width: 354px;
+        gap: 5%;
+      }
+      .form-item{
+        width: min-content;
+      }
+      .input{
+        width: 400px;
+      }
+      .checkbox{  
+        display: block;
+        position: relative;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 15px;
+      }
+  
+        .dash-icon, .dash{
+          width:"244";
+          height: "244";
+          text-align: center;
+          align-content: center;
+        }
+        button{
+          background-color: #1a73e8;
+          font-size: inherit;
+          letter-spacing: 0px;
+          opacity: 1;
+          font-weight: 500;
+          min-width: 100px;
+          border-radius:2px;
+          margin-top: 30px;
+        }
+  
+        .login{
+          align-self: center;
+        }
+        .padding{
+          padding-left: 180px;
+        }
+        ::ng-deep .mat-focused .mat-form-field-label {
+          /*change color of label*/
+          color: green !important;
+         }
+        
+         ::ng-deep.mat-form-field-underline {
+          /*change color of underline*/
+          background-color: green !important;
+        } 
+        
+        ::ng-deep.mat-form-field-ripple {
+         /*change color of underline when focused*/
+         background-color: green !important;;
+        }
+        .signin{
+          color: #202124;
+          padding-bottom: 0;
+          padding-top: 5px;
+          font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 1.3333;
+          margin-bottom: 0;
+          margin-top: 0;
+      }
+      .error {
+        color:crimson;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+      .ahrefbutton{
+        font-size: 16px;
+        min-width: 120px;
+        text-align: center;
+        text-decoration: none;
+    
+    }
+    

@@ -1,1 +1,52 @@
-<p>reset works!</p>
+<div class="divcenter">
+  <div class="center">
+    <mat-card-title>
+      <p>
+        <span class="colorF" style="color:#4285F4">F</span>
+        <span class="colorfundoo" style="color:#4285F4">UN</span>
+        <span class="colorfundoo" style="color:#EA4335">DOO</span>
+      </p>
+    </mat-card-title>
+  </div>
+  <div class="signin center">
+    <span>Change Password</span>
+  </div>
+  <div class="center usefundoo">
+    <span>Create a Strong Password</span>
+  </div>
+ 
+    <form id="resetForm" [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+      <div>
+    <div class="name form-item ">
+      <mat-form-field class="input" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" formControlName="password" required>
+        <div *ngIf="submitted && f.password.errors" class="error">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input" appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput placeholder="Confirm Password" formControlName="confirmPassword" required>
+        <div *ngIf="submitted && f.confirmPassword.errors" class="error">
+          <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+          <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+        </div>
+       </mat-form-field>
+    </div>
+  </div>
+</form>
+    <section>
+      <mat-checkbox class="checkbox">Show password</mat-checkbox>
+    </section>
+  
+  <div class="btns">
+    <div class="login">
+      <a routerLink="/Login"  class="ahrefbutton"> Login instead </a>
+      <span class="padding"> <button type="button" mat-raised-button (click)="onSubmit()" color="primary">Next</button></span>
+
+    </div>
+  </div>

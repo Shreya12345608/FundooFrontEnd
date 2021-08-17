@@ -16,36 +16,46 @@
     <span>to continue to Fundoo</span>
 
   </div>
-  <div>
+  <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="name form-item">
     <mat-form-field class="email" appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput placeholder="Enter Your Email">
+      <input matInput placeholder="Enter Your Email" formControlName="email" >
+      <div *ngIf="submitted && f.email.errors" class="error">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
     </mat-form-field>
+</div>
     <div class="name form-item">
-      <mat-form-field class="email" appearance="outline">
+      <mat-form-field class="email" appearance="outline" >
         <mat-label>Password</mat-label>
-        <input matInput placeholder="Password" required>
-        <!-- <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <input matInput placeholder="Password" formControlName="password">
+        <div *ngIf="submitted && f.password.errors" class="error">
           <div *ngIf="f.password.errors.required">Password is required</div>
-          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div> -->
-          <mat-hint class="pass-hint"  >Use 8 or more characters with a mix of letters, numbers at least 1 uppercase, 1 digit & 1 symbol
-          </mat-hint>
-        </mat-form-field>
-         </div>
-         
-          <div class=" center submit-btn">
-            <button type="submit" mat-raised-button color="primary" >Login</button>
-          </div>
-          <div class="btns">
-            <div class="create">
-              <a routerLink="/signup" >
-              Create account
-              </a>
-            </div>
-            <div class="forget">
-              <a routerLink="/forget" >
-              Forgot password?
-              </a>
-            </div>
-  </div>
-  </div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+        <mat-hint class="pass-hint">Use 8 or more characters with a mix of letters, numbers at least 1 uppercase, 1
+          digit & 1 symbol
+        </mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class=" center submit-btn">
+      <button type="submit" mat-raised-button color="primary">Login</button>
+    </div>
+    <div class="btns">
+      <div>
+        <a routerLink="/signup" class="ahrefbutton">
+          Create account
+        </a>
+      </div>
+      <div class="forget">
+        <a routerLink="/forget" class="ahrefbutton">
+          Forgot password?
+        </a>
+      </div>
+    </div>
+  </form>
+
+</div>

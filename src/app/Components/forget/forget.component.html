@@ -14,20 +14,24 @@
 <div class="usefundoo center">
     <span>Enter your email to get password reset link</span>
 </div>
-<form class="child loginForm" >
+<form id="forgetForm" [formGroup]="forgetForm" (ngSubmit)="onSubmit()">
 <div class="email">
     <mat-form-field class="email" appearance="outline">
         <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="pat@example.com" required >
+        <input matInput placeholder="pat@example.com" required formControlName="email" >
+        <div *ngIf="submitted && f.email.errors" class="error">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          </div>
 </mat-form-field>
 </div>
 <div class="btns">
-    <div class="create">
-        <a [routerLink]="['/signup']">
+    <div>
+        <a class="ahrefbutton" [routerLink]="['/signup']">
             Create account
         </a>
     </div>
-    <div class="submit-btn">
+    <div class=" center submit-btn">
 
         <button type="submit" mat-raised-button color="primary" >Submit</button>
     </div>

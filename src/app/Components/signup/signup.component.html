@@ -14,14 +14,14 @@
           <mat-form-field class="firstname" appearance="outline">
             <mat-label>First Name</mat-label>
             <input matInput placeholder="First Name" formControlName="firstName" />
-            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="submitted && f.firstName.errors" class="error">
               <div *ngIf="f.firstName.errors.required">First Name is required</div>
             </div>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Last Name</mat-label>
             <input matInput placeholder="Last Name" formControlName="lastName">
-            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="submitted && f.lastName.errors" class="error">
               <div *ngIf="f.lastName.errors.required">Last Name is required</div>
             </div>
           </mat-form-field>
@@ -30,7 +30,7 @@
           <mat-form-field class="email" appearance="outline">
             <mat-label>Enter your email</mat-label>
             <input matInput placeholder="pat@example.com" required formControlName="email">
-            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="submitted && f.email.errors" class="error">
               <div *ngIf="f.email.errors.required">Email is required</div>
               <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
             </div>
@@ -41,7 +41,7 @@
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
             <input matInput placeholder="Password" formControlName="password" required>
-            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="submitted && f.password.errors" class="error">
               <div *ngIf="f.password.errors.required">Password is required</div>
               <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
             </div>
@@ -49,7 +49,7 @@
           <mat-form-field appearance="outline">
             <mat-label>Confirm</mat-label>
             <input matInput placeholder="confirmPassword" formControlName="confirmPassword" required>
-            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+            <div *ngIf="submitted && f.confirmPassword.errors" class="error">
               <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
               <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
             </div>
@@ -68,7 +68,7 @@
         </div>
         <div class="btns">
           <div class="login">
-            <a routerLink="Login"> Login instead </a>
+            <a routerLink="/Login" class="ahrefbutton"> Login instead </a>
             <span class="padding"> <button type="button"(click)="onSubmit()" mat-raised-button color="primary">Next</button></span>
 
           </div>
