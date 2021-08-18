@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/Services/userservice/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
   show: boolean = false;
 
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private user: UserService) { }
 
   // click event function toggle
   password() {
@@ -35,13 +36,25 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+       // stop here if form is invalid
 
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
+    if(this.registerForm.invalid){
       return;
     }
-
+    let requestData = {
+      firstName: this.registerForm.value.firstName,
+      lastName: this.registerForm.value.lastName,
+      userEmail: this.registerForm.value.email,
+      password: this.registerForm.value.password
+    }
+    //user object calling registeruser
+    this.user.registerUser(requestData).subscribe(response => {console.log(response);
+    })
+   
+ 
+ 
+ 
     // display form values on success
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+  //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
   }
 }
