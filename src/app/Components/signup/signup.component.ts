@@ -47,6 +47,7 @@ export class SignupComponent implements OnInit {
       userEmail: this.registerForm.value.email,
       password: this.registerForm.value.password
     }
+  
     //user object calling registeruser
     this.user.registerUser(requestData).subscribe(response => {console.log(response);
     })

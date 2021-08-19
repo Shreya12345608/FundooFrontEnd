@@ -8,7 +8,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 const routes: Routes = [{ path: 'Login', component: LoginComponent },
 { path: 'signup', component: SignupComponent },
 { path: 'forget', component: ForgetComponent },
-{ path: 'reset', component: ResetComponent }];
+{ path: 'reset-password/:token', component: ResetComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,  FormGroup, Validators } from '@angular/forms';
-
+import { UserService } from 'src/app/Services/userservice/user.service';
 @Component({
   selector: 'app-forget',
   templateUrl: './forget.component.html',
@@ -10,7 +10,7 @@ export class ForgetComponent implements OnInit {
   forgetForm!: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder , private user: UserService) { }
 
   ngOnInit(): void {
     this.forgetForm = this.formBuilder.group({
@@ -23,14 +23,18 @@ export class ForgetComponent implements OnInit {
   
   onSubmit() {
     this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.forgetForm.invalid) {
+    if(this.forgetForm.invalid){
       return;
     }
-
+    
+    let requestData = {
+      userEmail: this.forgetForm.value.email
+    }
+    this.user
+    this.user.forgetUser(requestData).subscribe(response =>{console.log(response);
+    })
     // display form values on success
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.forgetForm.value, null, 4));
+   // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.forgetForm.value, null, 4));
   }
 
 }
