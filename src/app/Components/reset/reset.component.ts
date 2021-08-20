@@ -1,8 +1,13 @@
-import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/Services/userservice/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  MatSnackBarConfig,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+  } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-reset',
   templateUrl: './reset.component.html',
@@ -15,8 +20,14 @@ export class ResetComponent implements OnInit {
   // variable - default false
   show: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private activeRoute: ActivatedRoute, private user: UserService) { }
-
+  constructor(private formBuilder: FormBuilder, private router: Router, public snackBar: MatSnackBar, private activeRoute: ActivatedRoute, private user: UserService) { }
+  openSnackBar(message: string, duration: number) {
+    let config = new MatSnackBarConfig();
+    if (duration != 0) {
+      config.duration = duration;
+    }
+    this.snackBar.open(message, undefined, config);
+  }
   ngOnInit(): void {
     this.resetForm = this.formBuilder.group({
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -27,10 +38,10 @@ export class ResetComponent implements OnInit {
 
     //this.token = this.activeRoute.snapshot.params.token
   }
-    // click event function toggle
-    password() {
-      this.show = !this.show;
-    }
+  // click event function toggle
+  password() {
+    this.show = !this.show;
+  }
 
   // convenience getter for easy access to form fields
   get f() { return this.resetForm.controls; }
@@ -41,24 +52,24 @@ export class ResetComponent implements OnInit {
     if (this.resetForm.invalid) {
       return;
     }
-    let requestData = {
-      newPassword: this.resetForm.value.password,
-      confirmPassword: this.resetForm.value.confirmPassword
-    }
-    if (this.token != null) {
-      this.user.resetUser(this.token, requestData).subscribe(response => console.log(response));
-    }
-
-    // onSubmit() {
-    //   this.submitted = true;
-    //   console.log(this.token);
-
-    //   // stop here if form is invalid
-    //   if (this.resetForm.invalid) {
-    //     return;
-    //   }
-
-    //   // display form values on success
-    //   alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.resetForm.value, null, 4));
+    if(this.resetForm.valid){
+      this.openSnackBar('processing', 0); 
+      let reqData ={
+        newPassword: this.resetForm.value.password,
+        confirmPassword: this.resetForm.value.confirmPassword
+      }
+      this.user.forgetUser(reqData).subscribe(
+        (response: any) => {
+          this.openSnackBar('Password Reset link has been sent to your Email', 2000);
+        },
+        error => {
+          if(error['status'] == 0){
+            this.openSnackBar('Sending password reset link failed: server offline', 2000,);
+          }
+          else{
+            this.openSnackBar('Sending password reset link failed: ', 2000);
+          }
+        });
+    } 
   }
 }

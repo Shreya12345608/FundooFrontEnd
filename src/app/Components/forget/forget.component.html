@@ -18,7 +18,7 @@
         <div class="email">
             <mat-form-field class="email" appearance="outline">
                 <mat-label>Enter your email</mat-label>
-                <input matInput placeholder="pat@example.com" required formControlName="email">
+                <input matInput placeholder="email@example.com" required formControlName="email">
                 <mat-hint class="error" *ngIf="submitted && f.email.errors">
                     <mat-hint class="error" *ngIf="f.email.errors.required">Email is required</mat-hint>
                     <mat-hint class="error" *ngIf="f.email.errors.email">Email must be a valid email address</mat-hint>
@@ -30,7 +30,7 @@
                 <a class="ahrefbutton" [routerLink]="['/signup']">
                     Create account
                 </a>
-              <span class="padding">  <button type="submit" mat-raised-button color="primary">Submit</button></span>
+              <span class="padding">  <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Submit</button></span>
       
             </div>
           </div>
