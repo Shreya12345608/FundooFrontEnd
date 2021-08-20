@@ -1,40 +1,38 @@
 <div class="divcenter">
-<div class="center">
-    <mat-card-title>
-        <p>
-            <span class="colorF" style="color:#4285F4">F</span>
-            <span class="colorfundoo" style="color:#4285F4">UN</span>
-            <span class="colorfundoo" style="color:#EA4335">DOO</span>
-        </p>
-    </mat-card-title>
-</div>
-<div class="signin center"> 
-    <span>Account recovery</span>
-</div>
-<div class="usefundoo center">
-    <span>Enter your email to get password reset link</span>
-</div>
-<form id="forgetForm" [formGroup]="forgetForm" (ngSubmit)="onSubmit()">
-<div class="email">
-    <mat-form-field class="email" appearance="outline">
-        <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="pat@example.com" required formControlName="email" >
-        <div *ngIf="submitted && f.email.errors" class="error">
-            <div *ngIf="f.email.errors.required">Email is required</div>
-            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+    <div class="center">
+        <mat-card-title>
+            <p>
+                <span class="colorF" style="color:#4285F4">F</span>
+                <span class="colorfundoo" style="color:#4285F4">UN</span>
+                <span class="colorfundoo" style="color:#EA4335">DOO</span>
+            </p>
+        </mat-card-title>
+    </div>
+    <div class="signin center">
+        <span>Account recovery</span>
+    </div>
+    <div class="usefundoo center">
+        <span>Enter your email to get password reset link</span>
+    </div>
+    <form id="forgetForm" [formGroup]="forgetForm" (ngSubmit)="onSubmit()">
+        <div class="email">
+            <mat-form-field class="email" appearance="outline">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" required formControlName="email">
+                <mat-hint class="error" *ngIf="submitted && f.email.errors">
+                    <mat-hint class="error" *ngIf="f.email.errors.required">Email is required</mat-hint>
+                    <mat-hint class="error" *ngIf="f.email.errors.email">Email must be a valid email address</mat-hint>
+                </mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <div class="login">
+                <a class="ahrefbutton" [routerLink]="['/signup']">
+                    Create account
+                </a>
+              <span class="padding">  <button type="submit" mat-raised-button color="primary">Submit</button></span>
+      
+            </div>
           </div>
-</mat-form-field>
-</div>
-<div class="btns">
-    <div>
-        <a class="ahrefbutton" [routerLink]="['/signup']">
-            Create account
-        </a>
-    </div>
-    <div class=" center submit-btn">
-
-        <button type="submit" mat-raised-button color="primary" >Submit</button>
-    </div>
-</div>
-</form>
+    </form>
 </div>

@@ -1,112 +1,111 @@
 .divcenter{
-    margin: auto;
-    margin-top: 30px;
-    border-radius: 8px;
-    max-width: 700px;
-    border: 1px solid gray;
-    padding: 50px; 
-    padding-top: 50px;
-    background-color: #F5F5F5; 
-    font-size: larger;
-    display: flex;
+  margin: auto;
+  margin-top: 80px;
+  border-radius: 8px;
+  max-width: 700px;
+  border: 1px solid gray;
+  padding: 50px; 
+  padding-top: 50px;
+  background-color: #F5F5F5; 
+  font-size: larger;
+  display: flex;
 
-    }
+  }
 
 .colorfundoo{
-    font-weight: 550;
-    font-size: 15pt;
-    font-family:'Brush Script MT', cursive;
-  }
-  .colorfundooF{
-    font-weight: 500;
-    font-size: 30px;
-    font-family: 'Courier New', monospace;
-  }
+  font-weight: 550;
+  font-size: 15pt;
+  font-family:'Brush Script MT', cursive;
+}
+.colorfundooF{
+  font-weight: 500;
+  font-size: 30px;
+  font-family: 'Courier New', monospace;
+}
 .createCAccount{
-    font-size: 18px;
-    padding-top: 15px;
-    font-weight: 400;
-    color: #202124;
-    font-weight: 400;
+  font-size: 18px;
+  padding-top: 15px;
+  font-weight: 400;
+  color: #202124;
+  font-weight: 400;
 }
 .form-container{
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+.name{
+  display: flex;
+  flex-direction: row;
+  width: 354px;
+  gap: 5%;
+}
+.form-item{
+  width: min-content;
+}
+
+.email{
+    width: 430px;
+}
+.imagess{
+  padding-top: 50px;
+  width: 244;
+  height: 244;
   }
-  .name{
-    display: flex;
-    flex-direction: row;
-    width: 354px;
-    gap: 5%;
+  .checkbox{  
+    display: block;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
   }
-  .form-item{
-    width: min-content;
-  }
- 
-  .email{
-      width: 430px;
-  }
-  .imagess{
-    padding-top: 50px;
-    width: 244;
-    height: 244;
+
+    .dash-icon, .dash{
+      width:"244";
+      height: "244";
+      text-align: center;
+      align-content: center;
     }
-    .checkbox{  
-      display: block;
-      position: relative;
-      margin-bottom: 12px;
-      cursor: pointer;
-      font-size: 15px;
+    button{
+      background-color: #1a73e8;
+      font-size: inherit;
+      letter-spacing: 0px;
+      opacity: 1;
+      font-weight: 500;
+      min-width: 100px;
+      border-radius:2px;
+      margin-top: 30px;
     }
 
-      .dash-icon, .dash{
-        width:"244";
-        height: "244";
-        text-align: center;
-        align-content: center;
-      }
-      button{
-        background-color: #1a73e8;
-        font-size: inherit;
-        letter-spacing: 0px;
-        opacity: 1;
-        font-weight: 500;
-        min-width: 100px;
-        border-radius:2px;
-        margin-top: 30px;
-      }
-
-      .login{
-        align-self: center;
-        text-decoration:none;
-      }
-      .padding{
-        padding-left: 180px;
-      }
-      ::ng-deep .mat-focused .mat-form-field-label {
-        /*change color of label*/
-        color: green !important;
-       }
-      
-       ::ng-deep.mat-form-field-underline {
-        /*change color of underline*/
-        background-color: green !important;
-      } 
-      
-      ::ng-deep.mat-form-field-ripple {
-       /*change color of underline when focused*/
-       background-color: green !important;;
-      }
-      .error {
-        color:crimson;
-        font-size: 12px;
-        margin-left: 10px;
-      }
-      .ahrefbutton{
-        font-size: 16px;
-        min-width: 120px;
-        text-align: center;
-        text-decoration: none;
-  
+    .login{
+      align-self: center;
+      text-decoration:none;
     }
+    .padding{
+      padding-left: 180px;
+    }
+    ::ng-deep .mat-focused .mat-form-field-label {
+      /*change color of label*/
+      color: green !important;
+     }
     
+     ::ng-deep.mat-form-field-underline {
+      /*change color of underline*/
+      background-color: green !important;
+    } 
+    
+    ::ng-deep.mat-form-field-ripple {
+     /*change color of underline when focused*/
+     background-color: green !important;;
+    }
+    .error {
+      color:crimson;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+    .ahrefbutton{
+      font-size: 16px;
+      min-width: 120px;
+      text-align: center;
+      text-decoration: none;
+
+  }

@@ -51,11 +51,7 @@ export class SignupComponent implements OnInit {
     //user object calling registeruser
     this.user.registerUser(requestData).subscribe(response => {console.log(response);
     })
-   
- 
- 
- 
-    // display form values on success
+   // display form values on success
   //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
   }
 }

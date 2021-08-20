@@ -98,10 +98,15 @@
           margin-bottom: 0;
           margin-top: 0;
       }
+     
+      .errorclass{
+        padding-top: 0;
+      }
       .error {
         color:crimson;
         font-size: 12px;
         margin-left: 10px;
+        font-weight: bold;
       }
       .ahrefbutton{
         font-size: 16px;

@@ -12,7 +12,16 @@
       min-height: 450px;
       align-content: center;
   }
-
+  .errorclass{
+    padding-top: 0;
+  }
+  .error {
+    color:crimson;
+    font-size: 12px;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+ 
   .center{ margin: 2px;
       display: flex;
       flex-direction: row;
@@ -77,15 +86,19 @@
   padding-top: 30px;
  
 }
-.error {
-  color:crimson;
-  font-size: 12px;
-  margin-left: 10px;
-}
 .ahrefbutton{
   font-size: 16px;
   min-width: 120px;
   text-align: center;
   text-decoration: none;
 
+}
+
+.flex{
+ display: flex;
+ flex-direction: column;
+ padding-top: 10%;
+}
+.padding{
+  padding-left: 200px;
 }

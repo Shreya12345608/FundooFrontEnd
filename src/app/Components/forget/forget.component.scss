@@ -46,11 +46,13 @@
     color: green !important;
    }
   
-   .error {
+  .error {
     color:crimson;
     font-size: 12px;
     margin-left: 10px;
+    font-weight: bold;
   }
+ 
    ::ng-deep.mat-form-field-underline {
     /*change color of underline*/
     background-color: green !important;
@@ -78,3 +80,11 @@
   text-decoration: none;
 
 }
+.flex{
+  display: flex;
+  flex-direction: column;
+  padding-top: 5%;
+ }
+ .padding{
+   padding-left: 200px;
+ }

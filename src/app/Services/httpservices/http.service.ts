@@ -26,8 +26,8 @@ Get(url:any,data:any,token:any,headers:boolean){
 Put(url:any,data:any,token:any,headers:boolean){
   let options = {
     headers: new HttpHeaders({
-      'Authorization':token,
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Authorization': "Bearer " + token,
+      'Content-Type': 'application/json'
     })
   }
     //  //passing token as headers

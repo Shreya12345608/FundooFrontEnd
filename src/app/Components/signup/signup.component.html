@@ -1,83 +1,88 @@
-<section class="divcenter">
-  <div>
-    <div>
+<section class="divcenter" fxLayoutAlign="center center" fxFlex.xs="100">
+  <div class="leftdiv">
+    <div fxLayout="column" fxLayoutAlign="space-around center">
       <span class="colorfundooF" style="color:#4285F4">F</span>
       <span class="colorfundoo" style="color:#4285F4">un</span>
       <span class="colorfundoo" style="color:#EA4335">doo</span><br>
       <p class="createCAccount">Create your FunDooNotes Account</p>
     </div>
-
-
-    <form id="registerForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <div id="form-container" class="form-container">
-        <div class="name form-item" fxLayout.xs="column">
-          <mat-form-field class="firstname" appearance="outline" fxFlex="100" fxFlex.xs="100">
-            <mat-label>First Name</mat-label>
-            <input matInput placeholder="First Name" formControlName="firstName" />
-            <div *ngIf="submitted && f.firstName.errors" class="error">
-              <div *ngIf="f.firstName.errors.required">First Name is required</div>
-            </div>
-          </mat-form-field>
-          <mat-form-field appearance="outline" fxFlex.xs="100">
-            <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Last Name" formControlName="lastName">
-            <div *ngIf="submitted && f.lastName.errors" class="error">
-              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-            </div>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field class="email" appearance="outline" fxFlex="91" fxFlex.xs="100">
-            <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="pat@example.com" required formControlName="email">
-            <div *ngIf="submitted && f.email.errors" class="error">
-              <div *ngIf="f.email.errors.required">Email is required</div>
-              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
-            </div>
-            <mat-hint>You can use letters, numbers & periods</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="name form-item">
-          <mat-form-field appearance="outline" fxFlex.xs="100">
-            <mat-label>Password</mat-label>
-            <input matInput placeholder="Password" [type]="show ? 'text' : 'password'" formControlName="password"  required>
-            <div *ngIf="submitted && f.password.errors" class="error">
-              <div *ngIf="f.password.errors.required">Password is required</div>
-              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-            </div>
-          </mat-form-field>
-          <mat-form-field appearance="outline" fxFlex="70" fxFlex.xs="100">
-            <mat-label>Confirm</mat-label>
-            <input [type]="show ? 'text' : 'password'" matInput placeholder="confirmPassword" formControlName="confirmPassword" required>
-            <div *ngIf="submitted && f.confirmPassword.errors" class="error">
-              <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-              <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
-            </div>
-          </mat-form-field> 
-        </div>
-        <!-- <mat-hint class="pass-hint">Use 8 or more characters with a mix of letters, numbers at least 1 uppercase, 1
+    <div>
+      <form id="registerForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div id="form-container" class="form-container">
+          <div class="name form-item" fxLayout.xs="column">
+            <mat-form-field class="firstname" appearance="outline" fxFlex="100" fxFlex.xs="100">
+              <mat-label>First Name</mat-label>
+              <input matInput placeholder="First Name" formControlName="firstName" />
+              <mat-hint class="error" *ngIf="submitted && f.firstName.errors" class="error">
+                <mat-hint class="error" *ngIf="f.firstName.errors.required">First Name is required</mat-hint>
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex.xs="100">
+              <mat-label>Last Name</mat-label>
+              <input matInput placeholder="Last Name" formControlName="lastName">
+              <mat-hint class="error" *ngIf="submitted && f.lastName.errors" class="error">
+                <mat-hint class="error" *ngIf="f.lastName.errors.required">Last Name is required</mat-hint>
+              </mat-hint>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="email" appearance="outline" fxFlex="91" fxFlex.xs="100">
+              <mat-label>Enter your email</mat-label>
+              <input matInput placeholder="pat@example.com" required formControlName="email">
+              <mat-hint *ngIf="submitted && f.email.errors" class="error">
+                <mat-hint class="error" *ngIf="f.email.errors.required">Email is required</mat-hint>
+                <mat-hint class="error" *ngIf="f.email.errors.email">Email must be a valid email address</mat-hint>
+              </mat-hint>
+              <mat-hint>You can use letters, numbers & periods</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="name form-item">
+            <mat-form-field appearance="outline" fxFlex.xs="100">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Password" [type]="show ? 'text' : 'password'" formControlName="password"
+                required>
+              <mat-hint *ngIf="submitted && f.password.errors" class="error">
+                <mat-hint class="error" *ngIf="f.password.errors.required">Password is required</mat-hint>
+                <mat-hint class="error" *ngIf="f.password.errors.minlength">Password must be at least 6 characters
+                </mat-hint>
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="70" fxFlex.xs="100">
+              <mat-label>Confirm</mat-label>
+              <input [type]="show ? 'text' : 'password'" matInput placeholder="confirmPassword"
+                formControlName="confirmPassword" required>
+              <mat-hint *ngIf="submitted && f.confirmPassword.errors" class="error">
+                <mat-hint class="error" *ngIf="f.confirmPassword.errors.required">Confirm Password is required
+                </mat-hint>
+                <mat-hint class="error" *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</mat-hint>
+              </mat-hint>
+            </mat-form-field>
+          </div>
+          <!-- <mat-hint class="pass-hint">Use 8 or more characters with a mix of letters, numbers at least 1 uppercase, 1
           digit & 1 symbol</mat-hint>  -->
 
-        <div>
-          <section>
-            <mat-checkbox class="checkbox" (click)="password()" >Show password</mat-checkbox>
-          </section>
-        </div>
-        <div class="btns">
-          <div class="login">
-            <a routerLink="/Login" class="ahrefbutton"> Login instead </a>
-            <span class="padding"> <button type="button"(click)="onSubmit()" mat-raised-button color="primary">Next</button></span>
+          <div>
+            <section>
+              <mat-checkbox class="checkbox" (click)="password()">Show password</mat-checkbox>
+            </section>
 
           </div>
+          <div class="btns">
+            <div class="login">
+              <a routerLink="/Login" class="ahrefbutton"> Login instead </a>
+              <span class="padding"> <button type="button" (click)="onSubmit()" mat-raised-button
+                  color="primary">Next</button></span>
+
+            </div>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
+  </div>
+  <div class="rightdiv" fxHide.xs>
+      <img class="imagess" height="244" src="assets\images\account.jpg" alt="" srcset="">
+      <span class="dasp-span">One account. All of FunDooNotes working for you.</span>
+    </div>
 
 
-  </div>
-  <div class="dash">
-    <img class="imagess" height="244" src="assets\images\account.jpg" alt="" srcset="">
-    <span class="dasp-span">One account. All of FunDooNotes working for you.</span>
-  </div>
-  <!-- <div><img src="../../../assets/images/account.svg"></div> -->
 </section>
