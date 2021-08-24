@@ -60,14 +60,14 @@ export class ResetComponent implements OnInit {
       }
       this.user.resetUser(this.token,reqData).subscribe(
         (response: any) => {
-          this.openSnackBar('Password Reset SUccessfully ', 2000);
+          this.openSnackBar('Password Reset Successfully ', 2000);
         },
         error => {
           if(error['status'] == 0){
-            this.openSnackBar('Sending password reset link failed: server offline', 2000);
+            this.openSnackBar('Password Reset Failed: Server Offline', 2000);
           }
           else{
-            this.openSnackBar('Sending password reset link failed: ', 2000);
+            this.openSnackBar(' Password Reset Failed: ', 2000);
           }
         });
     } 
