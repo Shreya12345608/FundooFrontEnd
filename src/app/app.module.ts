@@ -25,6 +25,7 @@ import { GetAllNoteComponent } from './Components/GetAllNote/get-all-note/get-al
 import { TakeNotesComponent } from './TakeNotes/take-notes/take-notes.component';
 import { NotesComponent } from './Components/Notes/notes/notes.component';
 import { ReminderComponent } from './Components/Reminder/reminder/reminder.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,7 @@ import { ReminderComponent } from './Components/Reminder/reminder/reminder.compo
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    
+    FormsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,

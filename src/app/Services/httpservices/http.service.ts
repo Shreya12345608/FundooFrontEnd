@@ -12,10 +12,14 @@ BaseUrl = environment.LOGIN_URL;
 
 
 Post(url:any,data:any,token:any,headers:boolean){
-  // //print data and url
-  // console.log(data,url);
+  let options = {
+    headers: new HttpHeaders({
+      'Authorization': "Bearer " + token,
+      'Content-Type': 'application/json'
+    })
+  }
   // //connection with backend //https://localhost:44333/ api
-  return this.http.post(this.BaseUrl + url, data);
+  return this.http.post(this.BaseUrl + url, data,options);
 }
 Get(url:any,data:any,token:any,headers:boolean){
   //connection with backend 
