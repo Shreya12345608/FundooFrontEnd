@@ -9,7 +9,7 @@
     <span class="colorfundoo" style="color:#EA4335">doo</span>
   </mat-toolbar>
 
-  
+
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
@@ -23,20 +23,20 @@
             <span class="navText " *ngIf="isExpandable">Notes</span>
           </div>
         </mat-nav-list>
-        
+
         <mat-nav-list (mouseover)="isExpandable=true" (mouseleave)="isExpandable=false">
-        
+
           <div class="navlist" fxLayout="row" fxLayoutAlign="start center" (mouseover)="isExpandable=true"
-            fxLayoutGap="20px" mat-list-item routerLink="/home">
+            fxLayoutGap="20px" mat-list-item (click)="homeRoute()" routerLink="home/notes">
             <button class="navBtn btnPosition" mat-icon-button (mouseover)="isExpandable=true">
               <mat-icon>notifications_none</mat-icon>
             </button>
             <span class="navText " *ngIf="isExpandable">Reminder</span>
           </div>
           <div class="navlist" fxLayout="row" fxLayoutAlign="start center" (mouseover)="isExpandable=true"
-            fxLayoutGap="20px" mat-list-item routerLink="/home">
+            fxLayoutGap="20px" mat-list-item routerLink="home/Reminder" (click)="Reminder()">
             <button class="navBtn btnPosition" mat-icon-button (mouseover)="isExpandable=true">
-              <mat-icon >edit</mat-icon>
+              <mat-icon>edit</mat-icon>
             </button>
             <span class="navText " *ngIf="isExpandable">Edit Labels</span>
           </div>
@@ -55,12 +55,12 @@
             <span class="navText" *ngIf="isExpandable">Trash</span>
           </div>
         </mat-nav-list>
-        
+
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <p *ngFor="let content of fillerContent">{{content}}</p>
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

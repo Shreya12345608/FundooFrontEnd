@@ -24,6 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { GetAllNoteComponent } from './Components/GetAllNote/get-all-note/get-all-note.component';
 import { TakeNotesComponent } from './TakeNotes/take-notes/take-notes.component';
 import { NotesComponent } from './Components/Notes/notes/notes.component';
+import { ReminderComponent } from './Components/Reminder/reminder/reminder.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { NotesComponent } from './Components/Notes/notes/notes.component';
     DashboardComponent,
     GetAllNoteComponent,
     TakeNotesComponent,
-    NotesComponent
+    NotesComponent,
+    ReminderComponent
   ],
   imports: [
     BrowserModule,
