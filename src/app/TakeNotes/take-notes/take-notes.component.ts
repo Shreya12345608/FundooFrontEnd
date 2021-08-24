@@ -20,7 +20,7 @@ export class TakeNotesComponent implements OnInit {
  // @Output() messageEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
-    this.token = this.activeRoute.snapshot.paramMap.get('token');
+    // this.token = this.activeRoute.snapshot.paramMap.get('token');
 
   }
 
@@ -30,6 +30,7 @@ export class TakeNotesComponent implements OnInit {
       title: this.title,
       description: this.description
     }
+    this.token = localStorage.getItem('Token');
     console.log(" add note data ", data);
 
     this.note.createNote(this.token,data).subscribe((response) => {
