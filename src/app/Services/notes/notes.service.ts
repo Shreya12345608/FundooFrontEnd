@@ -6,12 +6,16 @@ import { HttpService } from '../httpservices/http.service';
 export class NotesService {
 
   constructor(private http: HttpService) { }
-
-  //get all notes
-  getNotes(data: any) {
-    console.log("given data is", data);
-    return this.http.Post('Notes', data, null, false);
-  }
+  // GetAllNotes(url:any){
+  //   console.log("given data is", url);
+  //   return this.http.GetAllNotes(url);
+  //  }
+  // //get all notes
+  // getNotes(data: any) {
+  //   console.log("given data is", data);
+  //   return this.http.Post('Notes', data, null, false);
+  // }
+  //create notes
   createNote(token:any,data: any) {
     return this.http.Post('Notes', data,  token, true)
 

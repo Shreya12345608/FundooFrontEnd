@@ -20,7 +20,9 @@ export class ResetComponent implements OnInit {
   // variable - default false
   show: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, public snackBar: MatSnackBar, private activeRoute: ActivatedRoute, private user: UserService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router,
+     public snackBar: MatSnackBar, 
+     private activeRoute: ActivatedRoute, private user: UserService) { }
   openSnackBar(message: string, duration: number) {
     let config = new MatSnackBarConfig();
     if (duration != 0) {

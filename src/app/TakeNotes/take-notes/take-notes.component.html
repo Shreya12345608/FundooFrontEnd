@@ -1,59 +1,43 @@
-<div fxLayoutAlign="center center">
-    <mat-card   class="view1" *ngIf="isOpen " (click)="isOpen = !isOpen">
-      <div  fxLayout="row" fxLayoutAlign="space-between center" >
-  
-        <div>
-          Take a Note
-        </div>
-  
-        <!-- <div fxLayout="row">
-          <div>
-            <button mat-icon-button matSuffix (click)="flag= true" matTooltip="new List">
-              <mat-icon>check_box</mat-icon>
-            </button>
-          </div>
-          <div>
-            <button mat-icon-button matSuffix (click)="flag= true" matTooltip="new Note with image">
-              <mat-icon>crop_original</mat-icon>
-            </button>
-          </div>
-        </div> -->
+<mat-card class="cn-card ">
+
+  <div class="card-title" *ngIf="fullEdit">
+
+    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="auto"
+    cdkAutosizeMinColumns="auto" cdkAutosizeMaxRows="auto" placeholder="Title" [(ngModel)]="title"></textarea>    <div class="pin-div" (click)="togglePin()" matTooltip="Pin note" matTooltipPosition='below'>
+      <div role="button" class="pin" [ngClass]="pin ? 'pinned-back' : 'unpinned-back'">
+        <!-- <div role="button" class="pin" [ngClass]="pin ? 'pinned-back' : 'pinned-back'">  -->
       </div>
-    </mat-card>
-  <mat-card *ngIf="!isOpen " class="takeNote">
-      <div  fxFlex="100" fxLayout="column">
-        <div >
-          <div fxLayout="row" fxLayoutAlign="space-between center">
-            <div fxFlex="100">
-              <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="auto"
-                cdkAutosizeMinColumns="auto" cdkAutosizeMaxRows="auto" placeholder="Title" [(ngModel)]="title"></textarea>
-            </div>
-            <div>
-              <!-- <button mat-icon-button matSuffix (click)="hide = !hide" matTooltip="pin">
-                - <img src="../../../assets/image/unpin.svg"> -->
-                <!-- <mat-icon><img src="../../../assets/image/pin .svg"></mat-icon>
-              </button> -->
-            </div>
-          </div>
-  
-          <div>
-            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="auto"
-              cdkAutosizeMinColumns="auto" cdkAutosizeMaxRows="auto" placeholder="Take a Note"
-              [(ngModel)]="description"></textarea>
-          </div>
-        </div>
-  
-      
-       
-        <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center">
-          <div fxFlex="60">
-            <!-- <app-icon ></app-icon> -->
-          </div>
-          <div>
-            <button mat-icon-button matSuffix (click)="addNote()">close</button>
-          </div>
-        </div>
-      </div>
-    </mat-card>
+    </div>
   </div>
-  
+  <div class="note-input" (click)=displayFull()>
+    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="auto"
+    cdkAutosizeMinColumns="auto" cdkAutosizeMaxRows="auto" placeholder="Take a Note"
+    [(ngModel)]="description"></textarea>
+    <div class="img-upload" *ngIf="!fullEdit"></div>
+
+  </div>
+
+  <div class="card-bottom" id="bottom" *ngIf="fullEdit">
+    <!-- <div><mat-label style="padding-left: 450px;">{{myDate | date:'short'}}</mat-label></div> -->
+    <div class="note-prop">
+      <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
+        matTooltipPosition='below'></div>
+      <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
+      <div class="back-color prop" role="button" matTooltip="Change color" matTooltipPosition='below'></div>
+      <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
+      <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
+
+
+
+      <div class="delete prop" role="button" matTooltip="Delete" matTooltipPosition='below'>
+        <mat-icon><img src="../../../assets/images/delete_black_24dp.svg" /></mat-icon>
+      </div>
+      <div class="undo prop" role="button" matTooltip="Undo" matTooltipPosition='below'></div>
+      <div class="redo prop" role="button" matTooltip="Redo" matTooltipPosition='below'></div>
+
+      <!--<div class="">  -->
+      <!-- Templete statements -->
+    </div>
+    <div class="close-note" (click)="addNote()">Close</div>
+  </div>
+</mat-card>

@@ -13,6 +13,9 @@ export class TakeNotesComponent implements OnInit {
   description = ''
   isOpen = true;
   token: any;
+  fullEdit : boolean = false;
+  pin : boolean = false;
+
   click() {
     this.isOpen = true;
   }
@@ -38,6 +41,12 @@ export class TakeNotesComponent implements OnInit {
       let message = "note created successfull";
       //this.messageEvent.emit(message);
     })
-
+    
+  }
+  togglePin(){
+    this.pin = !this.pin; 
+  } 
+  displayFull(){
+    this.fullEdit = true;
   }
 }
