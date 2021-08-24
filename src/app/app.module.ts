@@ -8,18 +8,22 @@ import { ForgetComponent } from './Components/forget/forget.component';
 import { ResetComponent } from './Components/reset/reset.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { SignupComponent } from './Components/signup/signup.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DashboardComponent } from './Components/dashboard/dashboard/dashboard.component';
-import {MatToolbarModule} from '@angular/material/toolbar'; 
-import { MatSidenavModule} from '@angular/material/sidenav'; 
-import {MatListModule} from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { GetAllNoteComponent } from './Components/GetAllNote/get-all-note/get-all-note.component';
+import { TakeNotesComponent } from './TakeNotes/take-notes/take-notes.component';
+import { NotesComponent } from './Components/Notes/notes/notes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +32,9 @@ import {MatListModule} from '@angular/material/list';
     ResetComponent,
     SignupComponent,
     DashboardComponent,
+    GetAllNoteComponent,
+    TakeNotesComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +49,11 @@ import {MatListModule} from '@angular/material/list';
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
+    
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

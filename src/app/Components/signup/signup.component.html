@@ -1,88 +1,82 @@
-<section class="divcenter" fxLayoutAlign="center center" fxFlex.xs="100">
-  <div class="leftdiv">
-    <div fxLayout="column" fxLayoutAlign="space-around center">
-      <span class="colorfundooF" style="color:#4285F4">F</span>
-      <span class="colorfundoo" style="color:#4285F4">un</span>
-      <span class="colorfundoo" style="color:#EA4335">doo</span><br>
-      <p class="createCAccount">Create your FunDooNotes Account</p>
-    </div>
+<section class="mainContent" [class.alternative]="true" fxFlex.xs=100 fxFlex.sm=100 fxFlex=50>
+  <div class="leftPart" fxFlex.sm="100%" fxFlex.lt-sm=100 fxFlexAlign-lt.sm="center" fxFlex=65 fxFlexAlign="center">
     <div>
+      <div>
+        <span class="colorfundooF" style="color:#4285F4">F</span>
+        <span class="colorfundoo" style="color:#4285F4">un</span>
+        <span class="colorfundoo" style="color:#EA4335">doo</span>
+      </div>
+      <span class="createCAccount">Create your FunDooNotes Account</span>
+    </div>
+    <div class="formInputs" fxLayout="column">
       <form id="registerForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div id="form-container" class="form-container">
-          <div class="name form-item" fxLayout.xs="column">
-            <mat-form-field class="firstname" appearance="outline" fxFlex="100" fxFlex.xs="100">
-              <mat-label>First Name</mat-label>
-              <input matInput placeholder="First Name" formControlName="firstName" />
-              <mat-hint class="error" *ngIf="submitted && f.firstName.errors" class="error">
-                <mat-hint class="error" *ngIf="f.firstName.errors.required">First Name is required</mat-hint>
-              </mat-hint>
-            </mat-form-field>
-            <mat-form-field appearance="outline" fxFlex.xs="100">
-              <mat-label>Last Name</mat-label>
-              <input matInput placeholder="Last Name" formControlName="lastName">
-              <mat-hint class="error" *ngIf="submitted && f.lastName.errors" class="error">
-                <mat-hint class="error" *ngIf="f.lastName.errors.required">Last Name is required</mat-hint>
-              </mat-hint>
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field class="email" appearance="outline" fxFlex="91" fxFlex.xs="100">
-              <mat-label>Enter your email</mat-label>
-              <input matInput placeholder="pat@example.com" required formControlName="email">
-              <mat-hint *ngIf="submitted && f.email.errors" class="error">
-                <mat-hint class="error" *ngIf="f.email.errors.required">Email is required</mat-hint>
-                <mat-hint class="error" *ngIf="f.email.errors.email">Email must be a valid email address</mat-hint>
-              </mat-hint>
-              <mat-hint>You can use letters, numbers & periods</mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="name form-item">
-            <mat-form-field appearance="outline" fxFlex.xs="100">
-              <mat-label>Password</mat-label>
-              <input matInput placeholder="Password" [type]="show ? 'text' : 'password'" formControlName="password"
-                required>
-              <mat-hint *ngIf="submitted && f.password.errors" class="error">
-                <mat-hint class="error" *ngIf="f.password.errors.required">Password is required</mat-hint>
-                <mat-hint class="error" *ngIf="f.password.errors.minlength">Password must be at least 6 characters
-                </mat-hint>
-              </mat-hint>
-            </mat-form-field>
-            <mat-form-field appearance="outline" fxFlex="70" fxFlex.xs="100">
-              <mat-label>Confirm</mat-label>
-              <input [type]="show ? 'text' : 'password'" matInput placeholder="confirmPassword"
-                formControlName="confirmPassword" required>
+        <div fxLayout.xs="column center" fxLayout="row wrap" fxLayoutAlign="space-between">
+          <mat-form-field fxFlex="48" appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" placeholder="First Name" autocomplete="off" type="text" />
+            <mat-hint class="error" *ngIf="submitted && f.firstName.errors" class="error">
+              <mat-hint class="error" *ngIf="f.firstName.errors.required">First Name is required</mat-hint>
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field fxFlex="48" appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" formControlName="lastName" class="form-control" autocomplete="off" type="text" />
+            <mat-hint class="error" *ngIf="submitted && f.lastName.errors" class="error">
+              <mat-hint class="error" *ngIf="f.lastName.errors.required">Last Name is required</mat-hint>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="emailSection" fxLayout="column wrap">
+          <mat-form-field class="emailSection" appearance="outline">
+            <mat-label>Your email address</mat-label>
+            <input class="input" placeholder="pat@example.com" required formControlName="email" class="form-control" matInput type="email" />
+            <mat-hint><b>You can use letters, numbers & periods</b></mat-hint>
+            <mat-hint *ngIf="submitted && f.email.errors" class="error">
+              <mat-hint class="error" *ngIf="f.email.errors.required">Email is required</mat-hint>
+              <mat-hint class="error" *ngIf="f.email.errors.email">Email must be a valid email address</mat-hint>
+            </mat-hint>
+            
+          </mat-form-field>
+        </div>
+        <div class="passwordSection" fxLayout.xs="column center" fxLayout="row wrap" fxLayoutAlign="space-between">
+          <mat-form-field fxFlex="48" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" formControlName="password" autocomplete="off" [type]="show? 'text':'password'" />
+            <!-- <mat-hint *ngIf="!submitted && f.password.errors" class="passwordHint"
+          >Use 8 letters, numbers or
+          symbols</mat-hint> -->
+          <mat-hint *ngIf="submitted && f.password.errors" class="error">
+            <mat-hint class="error" *ngIf="f.password.errors.required">Password is required</mat-hint>
+            <mat-hint class="error" *ngIf="f.password.errors.minlength">Password must be at least 6 characters
+            </mat-hint>
+          </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="48" appearance="outline">
+            <mat-label>Confirm</mat-label>
+            <input [type]="show? 'text':'password'" matInput formControlName="confirmPassword" class="form-control"
+              autocomplete="off" />
               <mat-hint *ngIf="submitted && f.confirmPassword.errors" class="error">
                 <mat-hint class="error" *ngIf="f.confirmPassword.errors.required">Confirm Password is required
                 </mat-hint>
                 <mat-hint class="error" *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</mat-hint>
               </mat-hint>
-            </mat-form-field>
-          </div>
-          <!-- <mat-hint class="pass-hint">Use 8 or more characters with a mix of letters, numbers at least 1 uppercase, 1
-          digit & 1 symbol</mat-hint>  -->
+          </mat-form-field>
 
-          <div>
-            <section>
-              <mat-checkbox class="checkbox" (click)="password()">Show password</mat-checkbox>
-            </section>
-
-          </div>
-          <div class="btns">
-            <div class="login">
-              <a routerLink="/Login" class="ahrefbutton"> Login instead </a>
-              <span class="padding"> <button type="button" (click)="onSubmit()" mat-raised-button
-                  color="primary">Next</button></span>
-
-            </div>
-          </div>
+        </div>
+        <mat-checkbox class="checkBox" (click)="password()">Show Password</mat-checkbox>
+        <div class="buttonsPart" fxLayout="row" fxLayoutAlign="space-between center">
+          <button mat-button routerLink="/login" color="primary">Sign in instead</button>
+          <button class="submitBtn" mat-raised-button (click)="onSubmit()" color="primary">
+            Submit
+          </button>
         </div>
       </form>
     </div>
   </div>
-  <div class="rightdiv" fxHide.xs>
-      <img class="imagess" height="244" src="assets\images\account.jpg" alt="" srcset="">
-      <span class="dasp-span">One account. All of FunDooNotes working for you.</span>
-    </div>
-
-
+  <div fxHide.sm fxHide.xs fxFlex class="rightPart" fxLayout="column" fxLayoutAlign="center center"
+    fxFlexAlign="center">
+    <img class="registerImg" src="assets\images\account.jpg" alt="" srcset="" />
+    <p class="dash-icon">Quick Notes, To-do List, Reminders</p>
+  </div>
 </section>

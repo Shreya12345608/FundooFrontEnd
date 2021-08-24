@@ -10,6 +10,7 @@
 .shadow{
   -webkit-box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%); 
   box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%); 
+
   padding: 10px;
   box-shadow: 5px 10px;
 }
@@ -33,4 +34,46 @@ h1.example-app-name {
   /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
      `<body>` to be our scrolling element for mobile layouts. */
   flex: 1 0 auto;
+}
+
+.navlist:hover{
+ align-items: center;
+  background-color:#FEEFC3;
+  border-radius: 0 20px 20px 0;
+  padding: 8px;
+}
+.navlist:active{
+  background-color: rgba(236, 222, 96, 0.507);
+}
+.menuBtn , .navBtn{
+  transform: all 3s ease;
+}
+
+.navText{
+  padding-right: 10px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style:initial;
+}
+.navBtn:hover{
+  color: rgb(255, 255, 255);
+}
+.btnPosition {
+  margin-left: 10px;
+ 
+ }
+ .navName{
+  font-size: 16px;
+  cursor: pointer;
+  padding-top: 15px;
+}
+.colorfundoo{
+  font-weight: 550;
+  font-size: 15pt;
+  font-family:'Brush Script MT', cursive;
+}
+.colorfundooF{
+  font-weight: 500;
+  font-size: 30px;
+  font-family: 'Courier New', monospace;
 }

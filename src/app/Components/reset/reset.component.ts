@@ -58,13 +58,13 @@ export class ResetComponent implements OnInit {
         newPassword: this.resetForm.value.password,
         confirmPassword: this.resetForm.value.confirmPassword
       }
-      this.user.forgetUser(reqData).subscribe(
+      this.user.resetUser(this.token,reqData).subscribe(
         (response: any) => {
-          this.openSnackBar('Password Reset link has been sent to your Email', 2000);
+          this.openSnackBar('Password Reset SUccessfully ', 2000);
         },
         error => {
           if(error['status'] == 0){
-            this.openSnackBar('Sending password reset link failed: server offline', 2000,);
+            this.openSnackBar('Sending password reset link failed: server offline', 2000);
           }
           else{
             this.openSnackBar('Sending password reset link failed: ', 2000);

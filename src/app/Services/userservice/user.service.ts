@@ -30,5 +30,7 @@ export class UserService {
     
     return this.http.Put('Fundoo/reset-password', data, token, true);
   }
+  
+ 
 }
 

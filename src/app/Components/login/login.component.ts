@@ -7,13 +7,14 @@ import {
 MatSnackBarHorizontalPosition,
 MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  users ='1';
   loginForm!: FormGroup;
   submitted = false;
   setAutoHide: boolean = false;
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
 
-  constructor(private formBuilder: FormBuilder,private user: UserService,public snackBar: MatSnackBar,) { }
+  constructor(private formBuilder: FormBuilder,private user: UserService,public snackBar: MatSnackBar, public route:Router) { }
   openSnackBar(message: string, duration: number) {
     let config = new MatSnackBarConfig();
     if (duration != 0)
@@ -60,16 +61,15 @@ export class LoginComponent implements OnInit {
       }
       this.user.loginUser(reqData).subscribe(
         (response: any) => {
-          localStorage.setItem('FunDooNotesJWT', response['token']);
+          localStorage.setItem('Token', response['token']);
           this.openSnackBar('Login success', 2000);
-         // console.log(response);
-          //this.route.navigate(['Dashboard']);
+          this.route.navigate(['home']);
           console.log(response);
         },
         error => {
           try {
             if(error['status'] == 0){
-              this.openSnackBar('Login failed: server offline', 2000,);
+              this.openSnackBar('Login failed: server offline', 2000);
             }
             else{
               this.openSnackBar('Login failed: ', 2000);

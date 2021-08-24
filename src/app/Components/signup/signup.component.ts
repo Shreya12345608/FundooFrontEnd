@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/Services/userservice/user.service';
-import { MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   show: boolean = false;
 
 
-  constructor(private formBuilder: FormBuilder, private user: UserService,public snackBar:MatSnackBar) { }
+  constructor(private formBuilder: FormBuilder, private user: UserService, public snackBar: MatSnackBar) { }
 
   // click event function toggle
   password() {
@@ -37,9 +37,9 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-       // stop here if form is invalid
+    // stop here if form is invalid
 
-    if(this.registerForm.invalid){
+    if (this.registerForm.invalid) {
       return;
     }
 
@@ -49,15 +49,16 @@ export class SignupComponent implements OnInit {
       userEmail: this.registerForm.value.email,
       password: this.registerForm.value.password
     }
-  
+
     //user object calling registeruser
-    this.user.registerUser(requestData).subscribe(response => {console.log(response);
-      this.snackBar.open("Registration successfull....."," ",{duration : 2000});   
-    },error => {
-      console.log("error in register",error);  
-      this.snackBar.open("Registration fail....."," ",{duration : 2000});   
+    this.user.registerUser(requestData).subscribe(response => {
+      console.log(response);
+      this.snackBar.open("Registration successfull.....", " ", { duration: 2000 });
+    }, error => {
+      console.log("error in register", error);
+      this.snackBar.open("Registration fail.....", " ", { duration: 2000 });
     });
   }
-   // display form values on success
+  // display form values on success
   //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-  }
+}

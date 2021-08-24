@@ -12,13 +12,12 @@ BaseUrl = environment.LOGIN_URL;
 
 
 Post(url:any,data:any,token:any,headers:boolean){
-  //print data and url
-  console.log(data,url);
-  //connection with backend //https://localhost:44333/ api
+  // //print data and url
+  // console.log(data,url);
+  // //connection with backend //https://localhost:44333/ api
   return this.http.post(this.BaseUrl + url, data);
 }
 Get(url:any,data:any,token:any,headers:boolean){
-  console.log(data,url);
   //connection with backend 
   return this.http.get(this.BaseUrl + url);
 }
@@ -30,14 +29,6 @@ Put(url:any,data:any,token:any,headers:boolean){
       'Content-Type': 'application/json'
     })
   }
-    //  //passing token as headers
-    //  this.https.set("Authorization", "Bearer " + token);
-    //  //passing headers in json format
-    //  let HttpOutput = {
-    //    headers : this.https
-    //  }
-  console.log(data,url);
-
   //connection with backend 
   return this.http.put(this.BaseUrl + url, data,options);
 }
