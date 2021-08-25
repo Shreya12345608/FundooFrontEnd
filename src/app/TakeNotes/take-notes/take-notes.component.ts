@@ -7,8 +7,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./take-notes.component.scss']
 })
 export class TakeNotesComponent implements OnInit {
-  // isClose: boolean = true;
-  // isOpen: boolean = false;
   title = ''
   description = ''
   isOpen = true;

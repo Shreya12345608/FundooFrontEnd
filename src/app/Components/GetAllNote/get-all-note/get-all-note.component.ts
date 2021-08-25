@@ -1,6 +1,6 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NotesService } from 'src/app/Services/notes/notes.service';
-import { ActivatedRoute } from '@angular/router'; 
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-get-all-note',
@@ -8,20 +8,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./get-all-note.component.scss']
 })
 export class GetAllNoteComponent implements OnInit {
-    token: any;
+  token: any;
   @Input() noteArray: any = []
-  constructor(private note: NotesService,private activeRoute: ActivatedRoute) { }
+  constructor(private note: NotesService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //this.GetAllNotes();
+    this.GetAllNotes();
   }
 
-  // GetAllNotes() {
-  //   this.note.GetAllNotes('Notes').subscribe((response:any) => {
-  //     console.log(response);
-  //     this.noteArray = response.data;
-  //     console.log(this.noteArray);
-      
-  //   }
-  //   )
+  GetAllNotes() {
+    this.note.GetAllNotes('Notes').subscribe((response: any) => {
+      console.log(response);
+      this.noteArray = response.data;
+      console.log(this.noteArray);
+
+    }
+    )
   }
+}

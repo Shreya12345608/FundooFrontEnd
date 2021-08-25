@@ -1,43 +1,40 @@
 <mat-card class="cn-card ">
 
-  <div class="card-title" *ngIf="fullEdit">
-
-    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="auto"
-    cdkAutosizeMinColumns="auto" cdkAutosizeMaxRows="auto" placeholder="Title" [(ngModel)]="title"></textarea>    <div class="pin-div" (click)="togglePin()" matTooltip="Pin note" matTooltipPosition='below'>
-      <div role="button" class="pin" [ngClass]="pin ? 'pinned-back' : 'unpinned-back'">
-        <!-- <div role="button" class="pin" [ngClass]="pin ? 'pinned-back' : 'pinned-back'">  -->
+  <div class="card-title"  *ngIf="fullEdit">
+      <input class="title-in font" matInput placeholder="Title" id="title"   [(ngModel)]="title"  >
+      
+      <div class="pin-div" (click)="togglePin()" matTooltip="Pin note" matTooltipPosition='below'>
+          <div role="button" class="pin" [ngClass]="pin ? 'pinned-back' : 'unpinned-back'"> 
+              <!-- <div role="button" class="pin" [ngClass]="pin ? 'pinned-back' : 'pinned-back'">  -->
+          </div>
       </div>
-    </div>
   </div>
+  
   <div class="note-input" (click)=displayFull()>
-    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="auto"
-    cdkAutosizeMinColumns="auto" cdkAutosizeMaxRows="auto" placeholder="Take a Note"
-    [(ngModel)]="description"></textarea>
-    <div class="img-upload" *ngIf="!fullEdit"></div>
-
+      <textarea contenteditable="true" aria-multiline="true" role="textbox"  
+     Placeholder="Take a note..." class="notes-main"  
+      tabindex="0" spellcheck="true" id="description"  [(ngModel)]="description" ></textarea>
+      <div class="img-upload" *ngIf="!fullEdit"></div>
+      
   </div>
-
+  
   <div class="card-bottom" id="bottom" *ngIf="fullEdit">
-    <!-- <div><mat-label style="padding-left: 450px;">{{myDate | date:'short'}}</mat-label></div> -->
-    <div class="note-prop">
-      <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
-        matTooltipPosition='below'></div>
-      <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
-      <div class="back-color prop" role="button" matTooltip="Change color" matTooltipPosition='below'></div>
-      <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
-      <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
+           <div class="note-prop">
+          <div class="reminder prop" role="button"  matTooltip="Remind me" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
+          <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
+          <div class="back-color prop" role="button" matTooltip="Change color" matTooltipPosition='below'></div>
+          <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
+          <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
 
+       
 
-
-      <div class="delete prop" role="button" matTooltip="Delete" matTooltipPosition='below'>
-        <mat-icon><img src="../../../assets/images/delete_black_24dp.svg" /></mat-icon>
+          <div class="delete prop"  role="button" matTooltip="Delete" matTooltipPosition='below'><mat-icon><img src="../../../assets/images/delete_black_24dp.svg"/></mat-icon></div>
+          <!-- <div class="undo prop" role="button" matTooltip="Undo" matTooltipPosition='below'></div>
+          <div class="redo prop" role="button" matTooltip="Redo" matTooltipPosition='below'></div>
+           -->
+          <!--<div class="">  -->
+         <!-- Templete statements -->
       </div>
-      <div class="undo prop" role="button" matTooltip="Undo" matTooltipPosition='below'></div>
-      <div class="redo prop" role="button" matTooltip="Redo" matTooltipPosition='below'></div>
-
-      <!--<div class="">  -->
-      <!-- Templete statements -->
-    </div>
-    <div class="close-note" (click)="addNote()">Close</div>
+      <div class="close-note" (click)="addNote()">Close</div> 
   </div>
 </mat-card>
