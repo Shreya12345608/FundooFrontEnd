@@ -44,7 +44,7 @@ export class HttpService {
     return this.http.get(this.BaseUrl + url, options);
   }
 
-  
+
   Put(url: any, data: any, token: any, headers: boolean) {
     let options = {
       headers: new HttpHeaders({
@@ -57,6 +57,29 @@ export class HttpService {
   }
 
 
+  // get all archive
+  GetAllArchive(url: any) {
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.get(this.BaseUrl + url, options);
+  }
+  //get all trash
+   GetAllTrash(url: any) {
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.get(this.BaseUrl + url, options);
+  }
+//delte note
   delete(id: any) {
     let token = localStorage.getItem('Token');
     let options = {
@@ -65,7 +88,7 @@ export class HttpService {
         'Content-Type': 'application/json'
       }),
     }
-    return this.http.delete(this.BaseUrl + 'Notes?notesId='+ id, options);
+    return this.http.delete(this.BaseUrl + 'Notes?notesId=' + id, options);
   }
 }
 

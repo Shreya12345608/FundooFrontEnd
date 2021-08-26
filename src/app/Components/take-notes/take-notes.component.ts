@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output } from '@angular/core';
 import { NotesService } from 'src/app/Services/notes/notes.service';
 import { ActivatedRoute } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-take-notes',
   templateUrl: './take-notes.component.html',
@@ -12,19 +13,19 @@ export class TakeNotesComponent implements OnInit {
   isOpen = true;
   token: any;
   fullEdit: boolean = false;
-  
-  pin : boolean = false;
+
+  pin: boolean = false;
 
   isReminder = false;
   isArchive = false;
   isPin = false;
   isTrash = false;
-
+  //@Output() createNoteRefersh = new EventEmitter;
   click() {
     this.isOpen = true;
   }
   constructor(private note: NotesService, private activeRoute: ActivatedRoute) { }
-  // @Output() messageEvent = new EventEmitter<string>();
+   @Output() createNoteRefersh = new EventEmitter<string>();
 
   ngOnInit(): void {
     // this.token = this.activeRoute.snapshot.paramMap.get('token');
@@ -36,7 +37,7 @@ export class TakeNotesComponent implements OnInit {
     let data = {
       title: this.title,
       description: this.description,
-      isArchieve: this.isArchive,
+      isArchive: this.isArchive,
       isPin: this.isPin,
       isTrash: this.isTrash
     }
@@ -47,8 +48,7 @@ export class TakeNotesComponent implements OnInit {
       console.log(response);
       let message = "note created successfull";
       console.log(message);
-
-      //this.messageEvent.emit(message);
+      this.createNoteRefersh.emit(message);
     })
 
   }

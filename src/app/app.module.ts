@@ -22,12 +22,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GetAllNoteComponent } from './Components/GetAllNote/get-all-note/get-all-note.component';
-import { TakeNotesComponent } from './TakeNotes/take-notes/take-notes.component';
+import { TakeNotesComponent } from './Components/take-notes/take-notes.component';
 import { NotesComponent } from './Components/Notes/notes/notes.component';
 import { ReminderComponent } from './Components/Reminder/reminder/reminder.component';
 import { FormsModule } from '@angular/forms';
 import { DeleteNotesComponent } from './Components/Delete/delete-notes/delete-notes.component';
 import { GetAllArchiveComponent } from './Components/getAllArchive/get-all-archive/get-all-archive.component';
+import { GetAllTrashComponent } from './Components/getAllTrash/get-all-trash/get-all-trash.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +45,8 @@ import { GetAllArchiveComponent } from './Components/getAllArchive/get-all-archi
     NotesComponent,
     ReminderComponent,
     DeleteNotesComponent,
-    GetAllArchiveComponent
+    GetAllArchiveComponent,
+    GetAllTrashComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,9 @@ import { GetAllArchiveComponent } from './Components/getAllArchive/get-all-archi
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatMenuModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class GetAllNoteComponent implements OnInit {
   token: any;
   isTrash = true
-  @Input() noteArray: any = []
+  notesArray: any = []
+  //@Input() noteArray: any = []
   constructor(private note: NotesService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -20,20 +21,25 @@ export class GetAllNoteComponent implements OnInit {
   GetAllNotes() {
     this.note.GetAllNotes('Notes').subscribe((response: any) => {
       console.log(response);
-      this.noteArray = response.data;
-      console.log(this.noteArray);
+      this.notesArray = response.data;
+      this.notesArray.reverse();
+      console.log(this.notesArray);
 
     }
     )
   }
 
-  deleteNote(note: any) {
-    let data = {
-      isTrash: this.isTrash
-    }
-    this.note.deleteNote(note).subscribe(data => {
-      console.log(data);
-      this.GetAllNotes();
-    })
+  refreshNotes(value:any ){
+    console.log(value);
+    this.GetAllNotes();
   }
+  // deleteNote(note: any) {
+  //   let data = {
+  //     isTrash: this.isTrash
+  //   }
+  //   this.note.deleteNote(note).subscribe(data => {
+  //     console.log(data);
+  //     this.GetAllNotes();
+  //   })
+  // }
 }

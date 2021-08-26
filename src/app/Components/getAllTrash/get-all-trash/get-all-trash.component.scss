@@ -3,12 +3,14 @@
     overflow: visible;
     padding-top: 30px; 
     margin: auto;
-    border: 0px;
     border-radius: 8px;
     box-shadow: 50px 10px #888888;
-  }
-  .mandiv{flex-direction: row;display: flex;margin: 10px; align-items: center;padding-left: 150px;}
-  .iconpadd{padding-bottom: 7px;}
+    padding-left: 50px;
+}
+.mandiv{flex-direction: row;display: flex;margin: 10px; align-items: center;padding-left: 150px;}
+
+.iconpadd{padding-bottom: 7px;}
+
   .font{
     font-size: 15px;
     font-family: Roboto,Arial,sans-serif;
