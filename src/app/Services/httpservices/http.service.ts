@@ -12,6 +12,10 @@ export class HttpService {
   https = new HttpHeaders();
   constructor(private http: HttpClient) { }
 
+  AddUser(url: any, data: any, token: any, headers: boolean) {
+    return this.http.post(this.BaseUrl + url, data);
+
+  }
 
   Post(url: any, data: any, token: any, headers: boolean) {
     let options = {
@@ -28,6 +32,7 @@ export class HttpService {
     return this.http.get(this.BaseUrl + url);
 
   }
+  // get all notes
   GetallNotes(url: any) {
     let token = localStorage.getItem('Token');
     let options = {
@@ -36,8 +41,10 @@ export class HttpService {
         'Content-Type': 'application/json'
       })
     }
-    return this.http.get(this.BaseUrl+url,options);
+    return this.http.get(this.BaseUrl + url, options);
   }
+
+  
   Put(url: any, data: any, token: any, headers: boolean) {
     let options = {
       headers: new HttpHeaders({
@@ -48,8 +55,18 @@ export class HttpService {
     //connection with backend 
     return this.http.put(this.BaseUrl + url, data, options);
   }
-  Delete() { }
 
+
+  delete(id: any) {
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      }),
+    }
+    return this.http.delete(this.BaseUrl + 'Notes?notesId='+ id, options);
+  }
 }
 
 

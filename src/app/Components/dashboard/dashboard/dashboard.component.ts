@@ -18,7 +18,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private routers: Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -30,12 +30,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-  homeRoute() {
-    this.router.navigateByUrl('home');
-  }
-  Reminder() {
-    this.router.navigateByUrl('home/reminder');
-  }
-
+  
 }
 

@@ -4,7 +4,7 @@
       <input class="title-in font" matInput placeholder="Title" id="title"   [(ngModel)]="title"  >
       
       <div class="pin-div" (click)="togglePin()" matTooltip="Pin note" matTooltipPosition='below'>
-          <div role="button" class="pin" [ngClass]="pin ? 'pinned-back' : 'unpinned-back'"> 
+          <div role="button" class="pin"  [ngClass]="pin ? 'pinned-back' : 'unpinned-back'"> 
               <!-- <div role="button" class="pin" [ngClass]="pin ? 'pinned-back' : 'pinned-back'">  -->
           </div>
       </div>
@@ -26,13 +26,7 @@
           <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
           <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
 
-       
-
-          <div class="delete prop"  role="button" matTooltip="Delete" matTooltipPosition='below'><mat-icon><img src="../../../assets/images/delete_black_24dp.svg"/></mat-icon></div>
-          <!-- <div class="undo prop" role="button" matTooltip="Undo" matTooltipPosition='below'></div>
-          <div class="redo prop" role="button" matTooltip="Redo" matTooltipPosition='below'></div>
-           -->
-          <!--<div class="">  -->
+       <!--<div class="">  -->
          <!-- Templete statements -->
       </div>
       <div class="close-note" (click)="addNote()">Close</div> 

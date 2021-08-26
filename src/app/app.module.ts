@@ -26,6 +26,8 @@ import { TakeNotesComponent } from './TakeNotes/take-notes/take-notes.component'
 import { NotesComponent } from './Components/Notes/notes/notes.component';
 import { ReminderComponent } from './Components/Reminder/reminder/reminder.component';
 import { FormsModule } from '@angular/forms';
+import { DeleteNotesComponent } from './Components/Delete/delete-notes/delete-notes.component';
+import { GetAllArchiveComponent } from './Components/getAllArchive/get-all-archive/get-all-archive.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,9 @@ import { FormsModule } from '@angular/forms';
     GetAllNoteComponent,
     TakeNotesComponent,
     NotesComponent,
-    ReminderComponent
+    ReminderComponent,
+    DeleteNotesComponent,
+    GetAllArchiveComponent
   ],
   imports: [
     BrowserModule,

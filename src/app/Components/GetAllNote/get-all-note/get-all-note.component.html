@@ -1,9 +1,25 @@
-<!-- <h3 class="wordBreak">{{ notes.title}}</h3>
-<h3 class="wordBreak">{{ notes.description }}</h3> -->
+<div style="flex-direction: row;display: flex;margin: 10px;" *ngFor="let note of noteArray;">
+    <mat-card class="card" ng-class="" >
+        <div class="mainBlock">
+            <div  id="title" #title contenteditable="false" aria-multiline="true" role="textbox" class="font n1"
+                dir="ltr"><strong>{{note.title}}</strong></div>
+            <div id="description" #description contenteditable="false" aria-multiline="true" role="textbox"
+                class="font n1" dir="ltr">{{note.description}}</div>
+       
+        <div class="card-bottom" id="bottom">
+            <div class="note-prop">
+                <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
+                    matTooltipPosition='below'></div>
+                <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
+                <div class="back-color prop" role="button" matTooltip="Change color" matTooltipPosition='below'>
+                </div>
+                <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
+                <div class="delete prop" role="button" (click)="deleteNote(note.notesId)" matTooltip="Delete" matTooltipPosition='delete'></div>
 
-<div class="getall" *ngFor="let notess of noteArray;">
-    <div>{{notess.title}}</div>
-    <div>{{notess.description}}</div>
+                <!--<div class="">  -->
+                <!-- Templete statements -->
+            </div>
+        </div>
+    </div>
+    </mat-card>
 </div>
-
-

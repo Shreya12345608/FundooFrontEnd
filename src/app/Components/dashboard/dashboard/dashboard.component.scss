@@ -77,3 +77,8 @@ h1.example-app-name {
   font-size: 30px;
   font-family: 'Courier New', monospace;
 }
+
+.mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content
+{
+  padding: 0px;
+}

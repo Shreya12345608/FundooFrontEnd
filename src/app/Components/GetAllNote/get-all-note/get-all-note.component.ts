@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GetAllNoteComponent implements OnInit {
   token: any;
+  isTrash = true
   @Input() noteArray: any = []
   constructor(private note: NotesService, private activeRoute: ActivatedRoute) { }
 
@@ -24,5 +25,15 @@ export class GetAllNoteComponent implements OnInit {
 
     }
     )
+  }
+
+  deleteNote(note: any) {
+    let data = {
+      isTrash: this.isTrash
+    }
+    this.note.deleteNote(note).subscribe(data => {
+      console.log(data);
+      this.GetAllNotes();
+    })
   }
 }

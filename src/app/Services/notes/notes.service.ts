@@ -21,4 +21,9 @@ export class NotesService {
     return this.http.Post('Notes', data,  token, true)
 
   }
+
+  deleteNote(data: any) {
+    return this.http.delete(data);
+
+  }
 }
