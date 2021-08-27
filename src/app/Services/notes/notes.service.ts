@@ -34,4 +34,7 @@ export class NotesService {
     console.log("given data is", url);
     return this.http.GetAllTrash(url);
   }
+  UpdateExistingNote(data: any) {
+    return this.http.UpdateNote(data);
+  }
 }

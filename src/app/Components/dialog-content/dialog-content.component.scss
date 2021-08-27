@@ -1,0 +1,23 @@
+input{
+    outline: none;
+    border: none;
+}
+
+.my-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    padding-top: 4px;
+    border: none;
+    background-color: transparent;
+  }
+  .button{
+      padding-top: 40px;
+      background-color: white;
+  }
+  
+  .my-button:hover {
+    background-color: rgba(153, 147, 147, 0.5);
+  }
+  

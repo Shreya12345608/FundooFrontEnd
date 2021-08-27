@@ -31,6 +31,9 @@ import { GetAllArchiveComponent } from './Components/getAllArchive/get-all-archi
 import { GetAllTrashComponent } from './Components/getAllTrash/get-all-trash/get-all-trash.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { DialogContentComponent } from './Components/dialog-content/dialog-content.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { IconComponent } from './Components/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     ReminderComponent,
     DeleteNotesComponent,
     GetAllArchiveComponent,
-    GetAllTrashComponent
+    GetAllTrashComponent,
+    DialogContentComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatListModule,
     FlexLayoutModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnDestroy, OnInit {
+  hide: Boolean = false;
+  advancedUser: Boolean = true;
+  hideNoteBar: Boolean = false;
 
   isExpandable: boolean = false;
   mobileQuery: MediaQueryList;
@@ -30,6 +33,17 @@ export class DashboardComponent implements OnDestroy, OnInit {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-  
+
+  refresh() {
+    window.location.reload();
+  }  
+  logout() {
+    sessionStorage.clear();
+    localStorage.clear();
+    this.routers.navigateByUrl('login');
+  }
+  changeHide() {
+    this.hide = !this.hide;
+  }
 }
 

@@ -1,0 +1,20 @@
+<form [formGroup]="cardUpdateForm">
+  <div class="notesTitle" fxLayout="row" fxLayoutAlign="space-between center">
+    <input mat-dialog-title formControlName="title" placeholder="Title" value="{{data.title}}" />
+    <div class="container" fxlayoutAlign="center center">
+      <mat-icon class="my-button pinBtn" [class.clicked]="true">push_pin</mat-icon>
+    </div>
+  </div>
+  <div>
+    <input mat-dialog-title formControlName="description" placeholder="description" value="{{data.description}}" />
+  </div>
+  <div fxLayoutAlign="end center">
+    <p>
+      Edited: {{data.modifiedDate}}
+    </p>
+  </div>
+</form>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+  <app-icon></app-icon>
+  <p class="button"> <button mat-button mat-dialog-close (click)="updateNote(data.notesId)">Close</button></p>
+</mat-dialog-actions>

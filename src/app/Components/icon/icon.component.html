@@ -1,0 +1,36 @@
+<div class="card-bottom" id="bottom">
+    <div class="note-prop">
+      
+      <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
+        matTooltipPosition='below'></div>
+      <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div> 
+      <div class="back-color prop"  [matMenuTriggerFor]="menu" role="button" matTooltip="Change color" matTooltipPosition='below'>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <!-- (click)="deleteNote(note.notesId)" -->
+              <p class="iconcolrcss red"></p>
+              <p class="iconcolrcss pink"></p>
+              <p class="iconcolrcss blue"></p>
+              <p class="iconcolrcss"></p>
+            </button>
+          </mat-menu>
+         
+    </div>
+    <!-- [card]="note" -->
+      <div  class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon class="iconpadd">more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <!-- (click)="deleteNote(note.notesId)" -->
+          <p>Delete Note</p>
+        </button>
+        <button mat-menu-item disabled>
+          <p>Add Label</p>
+        </button>
+      </mat-menu>
+      <!--<div class="">  -->
+      <!-- Templete statements -->
+    </div>
+  </div>

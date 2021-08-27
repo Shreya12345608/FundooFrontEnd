@@ -7,8 +7,56 @@
     <span class="colorfundoo" style="color:#4285F4">F</span>
     <span class="colorfundoo" style="color:#4285F4">un</span>
     <span class="colorfundoo" style="color:#EA4335">doo</span>
-  </mat-toolbar>
+    <div class="search-container">
+      <form>
+        <input type="text" placeholder="Search.." name="search">
+      </form>
+    </div>
+    <span style="flex:1 1 auto"></span>
+    <!-- Three Icons -->
+    <div fxLayout="row" fxLayoutAlign="space-around" style="margin-top: 1%; margin-left:5%">
 
+      <!-- <div fxHide.gt-xs="true">
+        <mat-icon class="material-icons" style="color: #440744">search</mat-icon>
+      </div> -->
+      <div ngClass.xs=three-icons-in-header-smaller-screen>
+        <mat-icon matTooltip="refresh" class="material-icons" style="color:#767676" (click)=refresh()>refresh
+        </mat-icon>
+      </div>
+      <div ngClass.gt-xs=three-icons-in-header-bigger-screen>
+        <div fxLayoutAlign="center center" fxHide.lt-sm="true" matTooltip="List view">
+          <mat-icon style="color:#767676">list</mat-icon>
+        </div>
+
+      </div>
+      <div ngClass.gt-xs=three-icons-in-header-bigger-screen ngClass.xs=three-icons-in-header-smaller-screen>
+        <mat-icon matTooltip="Shopping Cart" class="material-icons" style="color:#767676">
+          shopping_cart
+        </mat-icon>
+      </div>
+
+    </div>
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+
+    <!-- Log Out Icon -->
+    <div fxLayout="row" fxLayoutAlign="space-around" ngClass="log-out-icon">
+      <button mat-mini-fab color="" matTooltip="Log Out" mat-icon-button [matMenuTriggerFor]="profile">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+
+      <mat-menu #profile="matMenu">
+
+        <mat-card-header>
+          </mat-card-header>
+
+        <button class="next-button" mat-button (click)=logout()>
+          <mat-icon>exit_to_app</mat-icon>&nbsp;<span> Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+  <!-- Search bar in header -->
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav opened="true" mode="side" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
@@ -18,7 +66,7 @@
           <button class="navBtn btnPosition" mat-icon-button>
             <mat-icon>lightbulb</mat-icon>
           </button>
-          <p class="navName  " *ngIf="isExpandable">Notes</p>
+          <p class="navName" *ngIf="isExpandable">Notes</p>
         </a>
         <a class="navlist" fxLayout="row" fxLayoutAlign="start center" (mouseover)="isExpandable=true"
           fxLayoutGap="20px" mat-list-item routerLink="/reminder">
