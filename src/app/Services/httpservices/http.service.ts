@@ -87,6 +87,11 @@ export class HttpService {
 
   //update notes
   UpdateNote(id: any) {
+    console.log(id);
+    const data = {
+      title: id.Title,
+      description: id.Description
+    }
     let token = localStorage.getItem('Token');
     let options = {
       headers: new HttpHeaders({
@@ -94,8 +99,35 @@ export class HttpService {
         'Content-Type': 'application/json'
       })
     }
-    return this.http.put(this.BaseUrl + 'updateNote?NotesId=' + id, options);
+    return this.http.put(this.BaseUrl + 'Notes/updateNote?NotesId='+ id.NotesId, data, options);
   }
+  //update notes
+  TrashNote(id: any) {
+    console.log(id);
+    
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.put(this.BaseUrl + `Notes/${id.NotesId}/Trash`, options);
+  }
+  UpdateColor(data: any) {
+    console.log(data);
+    
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.put(this.BaseUrl + 'Notes/updateNote?NotesId='+ data.NotesId + "8&color=" +data.color, options);
+  }
+
+
 
 
   //delete note
@@ -107,7 +139,7 @@ export class HttpService {
         'Content-Type': 'application/json'
       }),
     }
-    return this.http.delete(this.BaseUrl + 'Notes?notesId=' + 58, options);
+    return this.http.delete(this.BaseUrl + 'Notes?notesId=' + id, options);
   }
 }
 

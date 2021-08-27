@@ -37,4 +37,10 @@ export class NotesService {
   UpdateExistingNote(data: any) {
     return this.http.UpdateNote(data);
   }
+  trashNote(data: any) {
+    return this.http.TrashNote(data);
+  }
+  updateColor(data: any) {
+    return this.http.UpdateColor(data);
+  }
 }

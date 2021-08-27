@@ -14,4 +14,13 @@ export class DataservicesService {
   changeMessage(message: string) {
     this.messageSource.next(message)
   }
+  
+  private updateNote = new BehaviorSubject([]);
+  noteUpdated = this.updateNote.asObservable();
+  
+  noteUpdate(message:any) {
+    console.log(" data service calling ",message);
+    
+    this.updateNote.next(message)
+  }
 }

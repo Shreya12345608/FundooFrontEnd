@@ -5,6 +5,7 @@
       <mat-icon class="my-button pinBtn" [class.clicked]="true">push_pin</mat-icon>
     </div>
   </div>
+ 
   <div>
     <input mat-dialog-title formControlName="description" placeholder="description" value="{{data.description}}" />
   </div>
@@ -16,5 +17,6 @@
 </form>
 <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
   <app-icon></app-icon>
-  <p class="button"> <button mat-button mat-dialog-close (click)="updateNote(data.notesId)">Close</button></p>
+  <!-- (click)="updateNote(data)" -->
+  <p class="button"> <button mat-button formControlName="notesId" mat-dialog-close (click)="updateNote(data.notesId)" >Close</button></p>
 </mat-dialog-actions>

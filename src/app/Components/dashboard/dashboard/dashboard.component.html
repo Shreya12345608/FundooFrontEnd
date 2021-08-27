@@ -1,4 +1,4 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+<div class="example-container"  [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="example-toolbar shadow">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
@@ -7,7 +7,7 @@
     <span class="colorfundoo" style="color:#4285F4">F</span>
     <span class="colorfundoo" style="color:#4285F4">un</span>
     <span class="colorfundoo" style="color:#EA4335">doo</span>
-    <div class="search-container">
+    <div  fxLayout="row" fxFlex="50%" fxFlex.gt-sm="25%" fxHide.md class="search-container">
       <form>
         <input type="text" placeholder="Search.." name="search">
       </form>
@@ -20,7 +20,8 @@
         <mat-icon class="material-icons" style="color: #440744">search</mat-icon>
       </div> -->
       <div ngClass.xs=three-icons-in-header-smaller-screen>
-        <mat-icon matTooltip="refresh" class="material-icons" style="color:#767676" (click)=refresh()>refresh
+        <mat-icon matTooltip="refresh" class="material-icons" style="color:#767676"
+          (click)=refresh()>refresh
         </mat-icon>
       </div>
       <div ngClass.gt-xs=three-icons-in-header-bigger-screen>
@@ -48,7 +49,10 @@
       <mat-menu #profile="matMenu">
 
         <mat-card-header>
-          </mat-card-header>
+          <img mat-card-avatar src="https://source.unsplash.com/random/200x200">
+          <!-- <mat-card-title><strong>{{userName}}</strong></mat-card-title>
+                    <mat-card-subtitle>{{userEmail}}</mat-card-subtitle> -->
+        </mat-card-header>
 
         <button class="next-button" mat-button (click)=logout()>
           <mat-icon>exit_to_app</mat-icon>&nbsp;<span> Logout</span>
@@ -66,7 +70,7 @@
           <button class="navBtn btnPosition" mat-icon-button>
             <mat-icon>lightbulb</mat-icon>
           </button>
-          <p class="navName" *ngIf="isExpandable">Notes</p>
+          <p class="navName  " *ngIf="isExpandable">Notes</p>
         </a>
         <a class="navlist" fxLayout="row" fxLayoutAlign="start center" (mouseover)="isExpandable=true"
           fxLayoutGap="20px" mat-list-item routerLink="/reminder">
@@ -101,6 +105,5 @@
 
     <mat-sidenav-content>
       <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    </mat-sidenav-content></mat-sidenav-container>
 </div>

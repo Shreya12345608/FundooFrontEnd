@@ -34,7 +34,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { DialogContentComponent } from './Components/dialog-content/dialog-content.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { IconComponent } from './Components/icon/icon.component';
-
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,9 +73,10 @@ import { IconComponent } from './Components/icon/icon.component';
     FlexLayoutModule,
     MatMenuModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    
   ],
-  providers: [],
+  providers: [  { provide: MAT_DIALOG_DATA, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
