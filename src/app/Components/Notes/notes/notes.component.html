@@ -1,6 +1,6 @@
 <div (mouseenter)="mouseEnter() " (mouseleave)="mouseLeave()"
  style="flex-direction: row;display: flex;margin: 10px;" *ngFor="let note of allNotes;">
-  <mat-card class="card" ng-class="" [ngStyle]="{'background': note.color}">
+  <mat-card class="card" ng-class="" [ngStyle]="{'background': '#'.concat(note.color) }">
     <div (click)="openDialog(note)" class="mainBlock">
       <div id="title" #title contenteditable="false" aria-multiline="true" role="textbox" class="font n1" dir="ltr">
         <strong>{{note.title}}</strong>
@@ -10,6 +10,5 @@
         <!-- [hidden]="!iconVisible" -->
         
       </div>
-      <span > <app-icon  ></app-icon></span>
-</mat-card>
+      <span > <app-icon  ></app-icon></span> </mat-card>
 </div>

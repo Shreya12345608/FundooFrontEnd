@@ -14,7 +14,7 @@ export class GetAllNoteComponent implements OnInit {
   //@Input() noteArray: any = []
   constructor(private note: NotesService, private activeRoute: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this.GetAllNotes();
   }
 
@@ -33,13 +33,5 @@ export class GetAllNoteComponent implements OnInit {
     console.log(value);
     this.GetAllNotes();
   }
-  // deleteNote(note: any) {
-  //   let data = {
-  //     isTrash: this.isTrash
-  //   }
-  //   this.note.deleteNote(note).subscribe(data => {
-  //     console.log(data);
-  //     this.GetAllNotes();
-  //   })
-  // }
+ 
 }

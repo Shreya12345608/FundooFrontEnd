@@ -43,13 +43,17 @@ export class TakeNotesComponent implements OnInit {
     }
     this.token = localStorage.getItem('Token');
     console.log(" add note data ", data);
-
-    this.note.createNote(this.token, data).subscribe((response) => {
-      console.log(response);
-      let message = "note created successfull";
-      console.log(message);
-      this.createNoteRefersh.emit(message);
-    })
+if(this.title && this.description){
+  this.note.createNote(this.token, data).subscribe((response) => {
+    console.log(response);
+    let message = "note created successfull";
+    console.log(message);
+    this.createNoteRefersh.emit(message);
+  })
+} else {
+  this.fullEdit = false;
+}
+   
 
   }
   togglePin() {

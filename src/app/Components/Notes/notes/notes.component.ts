@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpService } from 'src/app/Services/httpservices/http.service';
 import { NotesService } from 'src/app/Services/notes/notes.service';
 import { DialogContentComponent } from '../../dialog-content/dialog-content.component';
@@ -11,9 +11,11 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class NotesComponent implements OnInit {
   token: any;
+  op: any
   iconVisible: any
-    isTrash = true
+  isTrash = true
   @Input() allNotes: any = []
+  @Output() UpdateNote = new EventEmitter<any>();
   constructor(private note: NotesService, private mate: MatDialog) { }
 
   ngOnInit(): void {
@@ -35,13 +37,34 @@ export class NotesComponent implements OnInit {
       // this.GetAllNotes();
     })
   }
+  //Call this function on trash icon u r done
+  trashNote() {
+    let reqPayload = {
+     // NotesId: this.cardUpdateForm.value.notesId,
+    }
+    this.note.trashNote(reqPayload).subscribe((response:any) => {
+      this.op = response.data;
+      this.UpdateNote.emit(this.op);
+    })
+  }
+  updateColor(id: any, color: string) {
+
+    //Call this function on trash icon u r done
+    let reqPayload = {
+      // NoteId: this.colorpanel.value.NoteId,
+      // color: this.colorpanel.value.notesId,
+
+    }
+    this.note.updateColor(reqPayload).subscribe((response: any) => {
+      this.op = response.data;
+      this.UpdateNote.emit(this.op);
+    })
+  }
   mouseEnter() {
-    console.log("mouse enter");
     this.iconVisible = true;
   }
-  
+
   mouseLeave() {
-    console.log("mouse leave");
     this.iconVisible = false;
   }
 }

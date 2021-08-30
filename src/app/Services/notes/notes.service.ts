@@ -40,6 +40,9 @@ export class NotesService {
   trashNote(data: any) {
     return this.http.TrashNote(data);
   }
+  archiveNote(data: any) {
+    return this.http.archiveNote(data);
+  }
   updateColor(data: any) {
     return this.http.UpdateColor(data);
   }

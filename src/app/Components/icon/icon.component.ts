@@ -19,21 +19,35 @@ export class IconComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.colorpanel = this.formBuilder.group({
-      notesId: this.data.notesId,
-      color: this.data.color
-    })
+
   } updateColor(id: any, color: string) {
 
-    //Call this function on trash icon u r done
-    let reqPayload = {
-      NoteId: this.colorpanel.value.NoteId,
-      color: this.colorpanel.value.notesId,
+    console.log(id, color);
 
+    let reqPayload = {
+      NoteId: id,
+      color: color
     }
+    console.log(color);
     this.noteService.updateColor(reqPayload).subscribe((response: any) => {
       this.op = response.data;
       this.UpdateNote.emit(this.op);
     })
   }
+  deleteNote(note: any) {
+    console.log(note);
+    this.noteService.deleteNote(note).subscribe(data => {
+      window.location.reload()
+    })
+  }
+  // //Call this function on trash icon u r done
+  // trashNote() {
+  //   let reqPayload = {
+  //     NotesId: this.cardUpdateForm.value.notesId,
+  //   }
+  //   this.noteService.trashNote(reqPayload).subscribe((response:any) => {
+  //     this.op = response.data;
+  //     this.UpdateNote.emit(this.op);
+  //   })
+  // }
 }

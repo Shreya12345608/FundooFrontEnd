@@ -99,12 +99,12 @@ export class HttpService {
         'Content-Type': 'application/json'
       })
     }
-    return this.http.put(this.BaseUrl + 'Notes/updateNote?NotesId='+ id.NotesId, data, options);
+    return this.http.put(this.BaseUrl + 'Notes/updateNote?NotesId=' + id.NotesId, data, options);
   }
-  //update notes
+  //trash note notes
   TrashNote(id: any) {
     console.log(id);
-    
+
     let token = localStorage.getItem('Token');
     let options = {
       headers: new HttpHeaders({
@@ -112,11 +112,15 @@ export class HttpService {
         'Content-Type': 'application/json'
       })
     }
-    return this.http.put(this.BaseUrl + `Notes/${id.NotesId}/Trash`, options);
+    console.log(options);
+    return this.http.put(this.BaseUrl + `Notes/${id.NotesId}/Trash`, null,options);
   }
-  UpdateColor(data: any) {
-    console.log(data);
-    
+
+
+  //trash note notes
+  archiveNote(id: any) {
+    console.log(id);
+
     let token = localStorage.getItem('Token');
     let options = {
       headers: new HttpHeaders({
@@ -124,7 +128,25 @@ export class HttpService {
         'Content-Type': 'application/json'
       })
     }
-    return this.http.put(this.BaseUrl + 'Notes/updateNote?NotesId='+ data.NotesId + "8&color=" +data.color, options);
+    console.log(options);
+    return this.http.put(this.BaseUrl + `Notes/${id.NotesId}/Archive`, null,options);
+  }
+
+
+  UpdateColor(data: any) {
+    console.log(data)
+   const id=data.NoteId;
+   const color=data.color;
+
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      })
+    }
+    
+    return this.http.put(this.BaseUrl + `Notes/addColor?NoteId=${data.NoteId}&color=${color.replace('#','')}`,data, options);
   }
 
 

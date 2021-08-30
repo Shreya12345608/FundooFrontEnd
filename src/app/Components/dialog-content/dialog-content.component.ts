@@ -12,6 +12,7 @@ export class DialogContentComponent implements OnInit {
   cardUpdateForm!: FormGroup;
   op: any
   @Output() UpdateNote = new EventEmitter<any>();
+  notesArray: any;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
@@ -19,30 +20,75 @@ export class DialogContentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   this.cardUpdateForm = this.formBuilder.group({
-    notesId: this.data.notesId,
+    this.cardUpdateForm = this.formBuilder.group({
+      notesId: this.data.notesId,
       title: this.data.title,
+      color:this.data.color,
       description: this.data.description
     })
   }
-  updateNote(data:any) {
+  updateNote(data: any) {
     let reqPayload = {
       NotesId: this.cardUpdateForm.value.notesId,
       Title: this.cardUpdateForm.value.title,
       Description: this.cardUpdateForm.value.description
     }
     //new trash function rhega like  UpdateExistingNote usme sirf note id pass krna  "NotesId: this.cardUpdateForm.value.notesId"
-    this.noteService.UpdateExistingNote(reqPayload).subscribe((response:any) => {
+    this.noteService.UpdateExistingNote(reqPayload).subscribe((response: any) => {
       this.op = response.data;
       this.UpdateNote.emit(this.op);
     })
+
   }
-//Call this function on trash icon u r done
-  trashNote() {
+  
+  refreshNotes(value:any ){
+    console.log(value);
+   // this.UpdateNote();
+  }
+
+  updateColor(id: any, color: string) {
+    console.log(id, color);
+
+    //Call this function on trash icon u r done
+    let reqPayload = {
+      NoteId: id,
+      color: color
+    }
+    console.log(reqPayload);
+    this.noteService.updateColor(reqPayload).subscribe((response: any) => {
+      this.op = response.data;
+      console.log(this.op);
+      //this.updateColor.emit(this.op);
+    })
+  }
+  GetAllNotes() {
+    this.noteService.GetAllNotes('Notes').subscribe((response: any) => {
+      console.log(response);
+      this.notesArray = response.data;
+      this.notesArray.reverse();
+      console.log(this.notesArray);
+
+    }
+    )
+  }
+  //Call this function on trash icon u r done
+  trashNote(data:any) {
+    console.log(data,'------');
+    let reqPayload = {
+      NotesId: this.cardUpdateForm.value.notesId,   
+    }
+    this.noteService.trashNote(reqPayload).subscribe((response: any) => {
+      this.op = response.data;
+      window.location.reload();
+      this.UpdateNote.emit(this.op);
+    })
+  }
+   //Call this function on trash icon u r done
+   archiveNote() {
     let reqPayload = {
       NotesId: this.cardUpdateForm.value.notesId,
     }
-    this.noteService.trashNote(reqPayload).subscribe((response:any) => {
+    this.noteService.archiveNote(reqPayload).subscribe((response: any) => {
       this.op = response.data;
       this.UpdateNote.emit(this.op);
     })

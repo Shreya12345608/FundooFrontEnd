@@ -1,6 +1,6 @@
 <form [formGroup]="cardUpdateForm">
   <div class="notesTitle" fxLayout="row" fxLayoutAlign="space-between center">
-    <input mat-dialog-title formControlName="title" placeholder="Title" value="{{data.title}}" />
+    <input  class="boreder"mat-dialog-title formControlName="title" placeholder="Title" value="{{data.title}}" />
     <div class="container" fxlayoutAlign="center center">
       <mat-icon class="my-button pinBtn" [class.clicked]="true">push_pin</mat-icon>
     </div>
@@ -16,7 +16,52 @@
   </div>
 </form>
 <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
-  <app-icon></app-icon>
+  <div class="card-bottom" id="bottom">
+    <div class="note-prop">
+      
+      <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
+        matTooltipPosition='below'></div>
+      <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div> 
+      <div class="back-color prop"  [matMenuTriggerFor]="menus" role="button" matTooltip="Change color" matTooltipPosition='below'>
+        <mat-menu #menus="matMenu">
+            <button mat-menu-item>
+                 
+              <!-- (click)="deleteNote(note.notesId)" -->
+              <p class="iconcolrcss red" (click)="updateColor(data.notesId, '#FFFFFF')"></p>
+              <p class="iconcolrcss red" (click)="updateColor(data.notesId, '#F28B82')"></p>
+              <p class="iconcolrcss orange" (click)="updateColor(data.notesId,'#FBBC04')"></p>
+              <p class="iconcolrcss yellow" (click)="updateColor(data.notesId, '#FFF475')"></p>
+              <p class="iconcolrcss green" (click)="updateColor(data.notesId, '#CCFF90')"></p>
+              <p class="iconcolrcss teal" (click)="updateColor(data.notesId, '#A7FFEB')"></p>
+              <p class="iconcolrcss blue" (click)="updateColor(data.notesId, '#CBF0F8')"></p>
+              <p class="iconcolrcss darkblue" (click)="updateColor(data.notesId, '#AECBFA')"></p>
+              <p class="iconcolrcss purple" (click)="updateColor(data.notesId, '#D7AEFB')"></p>
+              <p class="iconcolrcss pink" (click)="updateColor(data.notesId, '#FDCFE8')"></p>
+              <p class="iconcolrcss brown" (click)="updateColor(data.notesId, '#E6C9A8')"></p>
+              <p class="iconcolrcss grey" (click)="updateColor(data.notesId, '#E8EAED')"></p>
+              
+            </button>
+          </mat-menu>
+         
+    </div>
+    <!-- [card]="note" -->
+      <div  class="archive prop" (click)="archiveNote()" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon class="iconpadd">more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <!-- (click)="deleteNote(note.notesId)" -->
+          <p (click) ="trashNote(data.notesId)">Delete Note</p>
+        </button>
+        <button mat-menu-item disabled>
+          <p>Add Label</p>
+        </button>
+      </mat-menu>
+      <!--<div class="">  -->
+      <!-- Templete statements -->
+    </div>
+  </div>
   <!-- (click)="updateNote(data)" -->
   <p class="button"> <button mat-button formControlName="notesId" mat-dialog-close (click)="updateNote(data.notesId)" >Close</button></p>
 </mat-dialog-actions>
