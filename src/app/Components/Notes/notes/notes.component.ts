@@ -4,6 +4,8 @@ import { NotesService } from 'src/app/Services/notes/notes.service';
 import { DialogContentComponent } from '../../dialog-content/dialog-content.component';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
@@ -16,7 +18,7 @@ export class NotesComponent implements OnInit {
   isTrash = true
   @Input() allNotes: any = []
   @Output() UpdateNote = new EventEmitter<any>();
-  constructor(private note: NotesService, private mate: MatDialog) { }
+  constructor(private note: NotesService, private mate: MatDialog,public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -58,6 +60,11 @@ export class NotesComponent implements OnInit {
     this.note.updateColor(reqPayload).subscribe((response: any) => {
       this.op = response.data;
       this.UpdateNote.emit(this.op);
+      this.snackBar.open("Note Updated Successfully.....", " ", { duration: 2000 });
+    }, error => {
+      console.log("error in register", error);
+      this.snackBar.open("Updating Note fail.....", " ", { duration: 2000 });
+
     })
   }
   mouseEnter() {

@@ -11,6 +11,7 @@ import { NotesService } from 'src/app/Services/notes/notes.service';
 export class DialogContentComponent implements OnInit {
   cardUpdateForm!: FormGroup;
   op: any
+  pin: boolean = false;
   @Output() UpdateNote = new EventEmitter<any>();
   notesArray: any;
 
@@ -23,7 +24,7 @@ export class DialogContentComponent implements OnInit {
     this.cardUpdateForm = this.formBuilder.group({
       notesId: this.data.notesId,
       title: this.data.title,
-      color:this.data.color,
+      color: this.data.color,
       description: this.data.description
     })
   }
@@ -40,16 +41,13 @@ export class DialogContentComponent implements OnInit {
     })
 
   }
-  
-  refreshNotes(value:any ){
+
+  refreshNotes(value: any) {
     console.log(value);
-   // this.UpdateNote();
+    // this.UpdateNote();
   }
 
   updateColor(id: any, color: string) {
-    console.log(id, color);
-
-    //Call this function on trash icon u r done
     let reqPayload = {
       NoteId: id,
       color: color
@@ -58,9 +56,11 @@ export class DialogContentComponent implements OnInit {
     this.noteService.updateColor(reqPayload).subscribe((response: any) => {
       this.op = response.data;
       console.log(this.op);
+      window.location.reload();
       //this.updateColor.emit(this.op);
     })
   }
+  // get all notes
   GetAllNotes() {
     this.noteService.GetAllNotes('Notes').subscribe((response: any) => {
       console.log(response);
@@ -71,11 +71,11 @@ export class DialogContentComponent implements OnInit {
     }
     )
   }
-  //Call this function on trash icon u r done
-  trashNote(data:any) {
-    console.log(data,'------');
+  //Trash Note
+  trashNote(data: any) {
+    console.log(data, '------');
     let reqPayload = {
-      NotesId: this.cardUpdateForm.value.notesId,   
+      NotesId: this.cardUpdateForm.value.notesId,
     }
     this.noteService.trashNote(reqPayload).subscribe((response: any) => {
       this.op = response.data;
@@ -83,14 +83,18 @@ export class DialogContentComponent implements OnInit {
       this.UpdateNote.emit(this.op);
     })
   }
-   //Call this function on trash icon u r done
-   archiveNote() {
+  //Archive Note
+  archiveNote() {
     let reqPayload = {
       NotesId: this.cardUpdateForm.value.notesId,
     }
     this.noteService.archiveNote(reqPayload).subscribe((response: any) => {
       this.op = response.data;
+      window.location.reload();
       this.UpdateNote.emit(this.op);
     })
+  }
+  togglePin() {
+    this.pin = !this.pin;
   }
 }

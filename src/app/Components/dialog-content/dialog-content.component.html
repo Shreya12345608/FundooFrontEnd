@@ -9,11 +9,7 @@
   <div>
     <input mat-dialog-title formControlName="description" placeholder="description" value="{{data.description}}" />
   </div>
-  <div fxLayoutAlign="end center">
-    <p>
-      Edited: {{data.modifiedDate}}
-    </p>
-  </div>
+
 </form>
 <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
   <div class="card-bottom" id="bottom">
@@ -57,11 +53,13 @@
         <button mat-menu-item disabled>
           <p>Add Label</p>
         </button>
+        
       </mat-menu>
+      <p class="button" style="padding-left: 150px ;"> <button  mat-button  formControlName="notesId" mat-dialog-close (click)="updateNote(data.notesId)" >Close</button></p>
       <!--<div class="">  -->
       <!-- Templete statements -->
     </div>
   </div>
   <!-- (click)="updateNote(data)" -->
-  <p class="button"> <button mat-button formControlName="notesId" mat-dialog-close (click)="updateNote(data.notesId)" >Close</button></p>
+ 
 </mat-dialog-actions>

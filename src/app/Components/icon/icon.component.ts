@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
+import { Component, OnInit, Output,Input, EventEmitter, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NotesService } from 'src/app/Services/notes/notes.service';
@@ -10,6 +10,7 @@ import { NotesService } from 'src/app/Services/notes/notes.service';
 })
 export class IconComponent implements OnInit {
   colorpanel!: FormGroup;
+  @Input() card: any;
 
   op: any
   @Output() UpdateNote = new EventEmitter<any>();
@@ -40,14 +41,15 @@ export class IconComponent implements OnInit {
       window.location.reload()
     })
   }
-  // //Call this function on trash icon u r done
-  // trashNote() {
-  //   let reqPayload = {
-  //     NotesId: this.cardUpdateForm.value.notesId,
-  //   }
-  //   this.noteService.trashNote(reqPayload).subscribe((response:any) => {
-  //     this.op = response.data;
-  //     this.UpdateNote.emit(this.op);
-  //   })
-  // }
+   //Archive Note
+   archiveNote() {
+    let reqPayload = {
+      NotesId: this.card.notesId,
+    }
+    this.noteService.archiveNote(reqPayload).subscribe((response: any) => {
+      this.op = response.data;
+      window.location.reload();
+      this.UpdateNote.emit(this.op);
+    })
+  }
 }

@@ -7,7 +7,27 @@
   box-shadow: 50px 10px #888888;
 }
 
-
+input{
+    width: 90%;
+      outline: none;
+      border: none;
+      border-radius: 8px;
+  }
+  
+  .my-button {
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      padding-top: 4px;
+      border: none;
+      background-color: transparent;
+    
+    }
+    
+    .my-button:hover {
+      background-color: rgba(153, 147, 147, 0.5);
+    }
 .font{
   font-size: 15px;
   font-family: Roboto,Arial,sans-serif;
@@ -199,12 +219,7 @@
     width: fit-content;
     font-size: 5px;
 }
-.boreder{ border: 3px solid #555;}
-.note-input{
-  border: 3px solid #555;
-    display: flex;
-    flex-direction: row;
-}
+
 .img-upload:hover{
     background-color: rgba(0,0,0,.15);
 }

@@ -27,7 +27,7 @@
          
     </div>
     <!-- [card]="note" -->
-      <div  class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
+      <div  class="archive prop" role="button" matTooltip="Archive" (click) = "archiveNote();" matTooltipPosition='below'></div>
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon class="iconpadd">more_vert</mat-icon>
       </button>
