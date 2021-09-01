@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,Input, EventEmitter, Inject } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NotesService } from 'src/app/Services/notes/notes.service';
@@ -21,7 +21,8 @@ export class IconComponent implements OnInit {
 
   ngOnInit(): void {
 
-  } updateColor(id: any, color: string) {
+  }
+  updateColor(id: any, color: string) {
 
     console.log(id, color);
 
@@ -32,6 +33,7 @@ export class IconComponent implements OnInit {
     console.log(color);
     this.noteService.updateColor(reqPayload).subscribe((response: any) => {
       this.op = response.data;
+      window.location.reload();
       this.UpdateNote.emit(this.op);
     })
   }
@@ -41,12 +43,26 @@ export class IconComponent implements OnInit {
       window.location.reload()
     })
   }
-   //Archive Note
-   archiveNote() {
+  //Archive Note
+  archiveNote() {
+    console.log(this.card.noteId);
     let reqPayload = {
       NotesId: this.card.notesId,
     }
     this.noteService.archiveNote(reqPayload).subscribe((response: any) => {
+      this.op = response.data;
+      window.location.reload();
+      this.UpdateNote.emit(this.op);
+    })
+  }
+  //Trash Note
+  trashNote(data: any) {
+    console.log(this.card.noteId);
+    console.log(data, '------');
+    let reqPayload = {
+      NotesId: this.card.notesId,
+    }
+    this.noteService.trashNote(reqPayload).subscribe((response: any) => {
       this.op = response.data;
       window.location.reload();
       this.UpdateNote.emit(this.op);

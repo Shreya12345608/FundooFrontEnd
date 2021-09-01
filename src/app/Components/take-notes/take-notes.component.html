@@ -16,9 +16,10 @@
             <div class="img-upload" *ngIf="!fullEdit"></div>
 
         </div>
-        
+
         <div class="card-bottom" id="bottom" *ngIf="fullEdit">
             
+        
             <div class="note-prop">
                 <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
                     matTooltipPosition='below'></div>
@@ -46,7 +47,7 @@
                   -->
 
                 </div>
-                <div class="archive prop" role="button" matTooltip="Archive"  [class.clicked]="isArchive" (click)="isArchive=!isArchive" matTooltipPosition='below'></div>
+                <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
                 <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
 
                 <!--<div class="">  -->

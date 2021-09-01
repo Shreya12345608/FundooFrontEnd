@@ -37,6 +37,8 @@ export class DialogContentComponent implements OnInit {
     //new trash function rhega like  UpdateExistingNote usme sirf note id pass krna  "NotesId: this.cardUpdateForm.value.notesId"
     this.noteService.UpdateExistingNote(reqPayload).subscribe((response: any) => {
       this.op = response.data;
+      this.op.reverse();
+      window.location.reload();
       this.UpdateNote.emit(this.op);
     })
 
