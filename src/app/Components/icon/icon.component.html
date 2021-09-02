@@ -10,7 +10,7 @@
         <button mat-menu-item>
 
           <!-- (click)="deleteNote(note.notesId)" -->
-          <p class="iconcolrcss red" (click)="updateColor(card.notesId, '#FFFFFF')"></p>
+          <p class="iconcolrcss hite" (click)="updateColor(card.notesId, '#FFFFFF')"></p>
           <p class="iconcolrcss red" (click)="updateColor(card.notesId, '#F28B82')"></p>
           <p class="iconcolrcss orange" (click)="updateColor(card.notesId,'#FBBC04')"></p>
           <p class="iconcolrcss yellow" (click)="updateColor(card.notesId, '#FFF475')"></p>
@@ -28,7 +28,7 @@
 
     </div>
     <!-- [card]="note" -->
-    <div class="archive prop" role="button" matTooltip="Archive" (click)="archiveNote();" matTooltipPosition='below'>
+    <div class="archive prop" role="button" matTooltip="Archive" (click)="archiveNote()"  matTooltipPosition='below'>
     </div>
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
       <mat-icon class="iconpadd">more_vert</mat-icon>

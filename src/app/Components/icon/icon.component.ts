@@ -14,6 +14,8 @@ export class IconComponent implements OnInit {
   @Output() onChangeColor = new EventEmitter();
 
   op: any
+  @Output() onArchiveChange = new EventEmitter();
+
   @Output() UpdateNote = new EventEmitter<any>();
   constructor(public noteService: NotesService, @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder, private snackBar: MatSnackBar) {

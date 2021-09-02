@@ -27,7 +27,7 @@ export class NotesComponent implements OnInit {
     let dialogRef = this.mate.open(DialogContentComponent, {
       width: '500px',
       data: note,
-      
+      backdropClass: ''
     
     });
     dialogRef.afterClosed().subscribe()

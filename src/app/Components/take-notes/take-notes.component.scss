@@ -204,7 +204,7 @@
         overflow-wrap: break-word;
         resize: none;
         border-radius: 50px;
-        background-color: white;
+       // background-color: white;
     }
  
     //   .notes-main{
@@ -239,8 +239,64 @@
     //   }
 
 }
+.pallete{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    padding-top: 4px;
+    border: none;
+  
+  }
+  
+  .pallete:hover{
+    border: 1px solid black;
+    color: none;
+  }
+  
+
+  .spaces{
+    margin-bottom:5px;
+  }
+
+.bg-white{
+  background-color: #ffffff;
+}
+
+.bg-red{
+  background-color: #e75f5f;
+}
+
+.bg-green{
+  background-color: #65e665;
+}
+
+.bg-orange{
+  background-color: #e28011;
+}
+
+.bg-gray{
+  background-color: #c3c0c086;
+}
+
+.bg-pink{
+  background-color: #ee6ce3;
+}
+
+.bg-purple{
+  background-color: #be7aeb;
+}
+
+.bg-blue{
+  background-color: #5eadee;
+}
+
+.bg-yellow{
+  background-color: #e7da65;
+}
 @media screen and (max-width: 370px){
     .prop{
         margin: auto;
     }
 }
+
