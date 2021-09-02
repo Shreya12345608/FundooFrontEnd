@@ -2,22 +2,53 @@
     margin-top: 20px;
     grid-template-columns: minmax(min-content, 300px) minmax(200px, 1fr) 150px;
   }
-  
+  #title,#description{ 
+     text-overflow:ellipsis;
+    overflow:hidden;
+    // Addition lines for 2 line or multiline ellipsis
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal;}
   .card {
-    width: 240px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    border-radius: 8px;
-    transform: all 3s ease-in;
-    word-wrap:break-word;
-    grid-template-columns: minmax(min-content, 300px) minmax(200px, 1fr) 150px;
+   
+  width: 240px;
+  min-height: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; 
+  border-radius: 8px;
+  transform: all 3s ease-in;
+  word-wrap:break-word;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
   }
   .card:not(:last-child){
     margin-right:10px;
   }
   .card:hover {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    //visibility:visible;
   }
+  .card-bottom {
+    // display: flex;
+    // width: inherit;
+    // justify-content: space-between;
+    visibility: hidden;
+  
+  }
+
+  .card:hover .card-bottom,
+.card-bottom:hover {
+  visibility: visible;
+}
+
+.card:hover .list-view-bottom,
+.list-view-bottom:hover {
+  visibility: visible;
+}
   
   .bgred{
     background-color: #e75454;
@@ -34,7 +65,9 @@
   .bgorange{
     background-color: #e28011;
   }
-  
+  .dialog-bg-trans {
+    background-color:  #e28011;
+  }
   .bggray{
     background-color: #c3c0c086;
   }

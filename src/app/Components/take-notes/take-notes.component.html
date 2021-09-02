@@ -18,42 +18,46 @@
         </div>
 
         <div class="card-bottom" id="bottom" *ngIf="fullEdit">
-            
-        
-            <div class="note-prop">
-                <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
-                    matTooltipPosition='below'></div>
-                <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
-                <div class="back-color prop" role="button" matTooltip="Change color" matTooltipPosition='below'>
-                    <!-- <mat-menu #menus="matMenu">
-                    <button mat-menu-item>
-                         
-        
-                      <p class="iconcolrcss red" (click)="updateColor(data.notesId, '#FFFFFF')"></p>
-                      <p class="iconcolrcss red" (click)="updateColor(data.notesId, '#F28B82')"></p>
-                      <p class="iconcolrcss orange" (click)="updateColor(data.notesId,'#FBBC04')"></p>
-                      <p class="iconcolrcss yellow" (click)="updateColor(data.notesId, '#FFF475')"></p>
-                      <p class="iconcolrcss green" (click)="updateColor(data.notesId, '#CCFF90')"></p>
-                      <p class="iconcolrcss teal" (click)="updateColor(data.notesId, '#A7FFEB')"></p>
-                      <p class="iconcolrcss blue" (click)="updateColor(data.notesId, '#CBF0F8')"></p>
-                      <p class="iconcolrcss darkblue" (click)="updateColor(data.notesId, '#AECBFA')"></p>
-                      <p class="iconcolrcss purple" (click)="updateColor(data.notesId, '#D7AEFB')"></p>
-                      <p class="iconcolrcss pink" (click)="updateColor(data.notesId, '#FDCFE8')"></p>
-                      <p class="iconcolrcss brown" (click)="updateColor(data.notesId, '#E6C9A8')"></p>
-                      <p class="iconcolrcss grey" (click)="updateColor(data.notesId, '#E8EAED')"></p>
-                      
-                    </button>
-                  </mat-menu>
-                  -->
-
-                </div>
-                <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
-                <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
-
-                <!--<div class="">  -->
-                <!-- Templete statements -->
-            </div>
+            <span > <app-icon (onChangeColor)="receivecolor($event)" ></app-icon></span> 
             <div class="close-note" (click)="addNote()">Close</div>
         </div>
     </mat-card>
 </div>
+
+
+
+   
+        
+<!-- <div class="note-prop">
+    <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
+        matTooltipPosition='below'></div>
+    <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
+    <div class="back-color prop" role="button" matTooltip="Change color" matTooltipPosition='below'>
+        <!-- <mat-menu #menus="matMenu">
+        <button mat-menu-item>
+             
+
+          <p class="iconcolrcss red" (click)="updateColor(data.notesId, '#FFFFFF')"></p>
+          <p class="iconcolrcss red" (click)="updateColor(data.notesId, '#F28B82')"></p>
+          <p class="iconcolrcss orange" (click)="updateColor(data.notesId,'#FBBC04')"></p>
+          <p class="iconcolrcss yellow" (click)="updateColor(data.notesId, '#FFF475')"></p>
+          <p class="iconcolrcss green" (click)="updateColor(data.notesId, '#CCFF90')"></p>
+          <p class="iconcolrcss teal" (click)="updateColor(data.notesId, '#A7FFEB')"></p>
+          <p class="iconcolrcss blue" (click)="updateColor(data.notesId, '#CBF0F8')"></p>
+          <p class="iconcolrcss darkblue" (click)="updateColor(data.notesId, '#AECBFA')"></p>
+          <p class="iconcolrcss purple" (click)="updateColor(data.notesId, '#D7AEFB')"></p>
+          <p class="iconcolrcss pink" (click)="updateColor(data.notesId, '#FDCFE8')"></p>
+          <p class="iconcolrcss brown" (click)="updateColor(data.notesId, '#E6C9A8')"></p>
+          <p class="iconcolrcss grey" (click)="updateColor(data.notesId, '#E8EAED')"></p>
+          
+        </button>
+      </mat-menu>
+      -->
+
+    <!-- </div>
+    <div class="archive prop" role="button" matTooltip="Archive"  matTooltipPosition='below'></div>
+    <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div> -->
+
+    <!--<div class="">  -->
+    <!-- Templete statements -->
+<!--</div> -->

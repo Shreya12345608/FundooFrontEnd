@@ -23,27 +23,15 @@
        display: flex;
        flex-direction: row;
     }
-    .close-note:hover{
-        background-color: rgb(233, 233, 233);
-    }
+   
     .close-note{
         margin-left: auto;
         cursor: pointer;
         margin-right: 15px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        letter-spacing: .01785714em;
-        font-family: 'Google Sans',Roboto,Arial,sans-serif;
-        font-size: .875rem;
-        font-weight: 500;
-        line-height: 1.25rem;
-        height: 36px;
-        padding: 8px 24px;
+        padding: 50px 24px;
         -webkit-border-radius: 4px;
         border-radius: 4px;
         border-radius: 10px;
-     
     }
     .reminder{
         background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTMgOWgtMnYySDl2MmgydjJoMnYtMmgydi0yaC0yeiIvPgogIDxwYXRoIGQ9Ik0xOCAxN3YtNmMwLTMuMDctMS42My01LjY0LTQuNS02LjMyVjRjMC0uODMtLjY3LTEuNS0xLjUtMS41cy0xLjUuNjctMS41IDEuNXYuNjhDNy42NCA1LjM2IDYgNy45MiA2IDExdjZINHYyaDE2di0yaC0yem0tMiAwSDh2LTZjMC0yLjQ4IDEuNTEtNC41IDQtNC41czQgMi4wMiA0IDQuNXY2em0tNCA1YzEuMSAwIDItLjkgMi0yaC00YzAgMS4xLjkgMiAyIDJ6Ii8+Cjwvc3ZnPgo=);

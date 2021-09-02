@@ -1,27 +1,29 @@
-<form [formGroup]="cardUpdateForm">
-  <div class="notesTitle" fxLayout="row" fxLayoutAlign="space-between center">
-    <input  class="boreder"mat-dialog-title formControlName="title" placeholder="Title" value="{{data.title}}" />
-    <div class="container" fxlayoutAlign="center center">
-      <mat-icon class="my-button pinBtn" [class.clicked]="true">push_pin</mat-icon>
+<!-- <div [ngStyle]="{'background': '#'.concat(data.color) }"> -->
+  <form [formGroup]="cardUpdateForm">
+    <div class="notesTitle" fxLayout="row" fxLayoutAlign="space-between center">
+      <input class="boreder" mat-dialog-title formControlName="title" placeholder="Title" value="{{data.title}}" />
+      <div class="container" fxlayoutAlign="center center">
+        <mat-icon class="my-button pinBtn" [class.clicked]="true">push_pin</mat-icon>
+      </div>
     </div>
-  </div>
- 
-  <div>
-    <input mat-dialog-title formControlName="description" placeholder="description" value="{{data.description}}" />
-  </div>
 
-</form>
-<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
-  <div class="card-bottom" id="bottom">
-    <div class="note-prop">
-      
-      <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
-        matTooltipPosition='below'></div>
-      <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div> 
-      <div class="back-color prop"  [matMenuTriggerFor]="menus" role="button" matTooltip="Change color" matTooltipPosition='below'>
-        <mat-menu #menus="matMenu">
+    <div>
+      <input mat-dialog-title formControlName="description" placeholder="description" value="{{data.description}}" />
+    </div>
+
+  </form>
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="card-bottom" id="bottom">
+      <div class="note-prop">
+
+        <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
+          matTooltipPosition='below'></div>
+        <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
+        <div class="back-color prop" [matMenuTriggerFor]="menus" role="button" matTooltip="Change color"
+          matTooltipPosition='below'>
+          <mat-menu #menus="matMenu">
             <button mat-menu-item>
-                 
+
               <!-- (click)="deleteNote(note.notesId)" -->
               <p class="iconcolrcss red" (click)="updateColor(data.notesId, '#FFFFFF')"></p>
               <p class="iconcolrcss red" (click)="updateColor(data.notesId, '#F28B82')"></p>
@@ -35,31 +37,34 @@
               <p class="iconcolrcss pink" (click)="updateColor(data.notesId, '#FDCFE8')"></p>
               <p class="iconcolrcss brown" (click)="updateColor(data.notesId, '#E6C9A8')"></p>
               <p class="iconcolrcss grey" (click)="updateColor(data.notesId, '#E8EAED')"></p>
-              
+
             </button>
           </mat-menu>
-         
-    </div>
-    <!-- [card]="note" -->
-      <div  class="archive prop" (click)="archiveNote()" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon class="iconpadd">more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <!-- (click)="deleteNote(note.notesId)" -->
-          <p (click) ="trashNote(data.notesId)">Delete Note</p>
+
+        </div>
+        <!-- [card]="note" -->
+        <div class="archive prop" (click)="archiveNote()" role="button" matTooltip="Archive" matTooltipPosition='below'>
+        </div>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon class="iconpadd">more_vert</mat-icon>
         </button>
-        <button mat-menu-item disabled>
-          <p>Add Label</p>
-        </button>
-        
-      </mat-menu>
-      <p class="button" style="padding-left: 150px ;"> <button  mat-button  formControlName="notesId" mat-dialog-close (click)="updateNote(data.notesId)" >Close</button></p>
-      <!--<div class="">  -->
-      <!-- Templete statements -->
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <!-- (click)="deleteNote(note.notesId)" -->
+            <p (click)="trashNote(data.notesId)">Delete Note</p>
+          </button>
+          <button mat-menu-item disabled>
+            <p>Add Label</p>
+          </button>
+
+        </mat-menu>
+        <p class="button" style="padding-left: 150px ;"> <button mat-button formControlName="notesId" mat-dialog-close
+            (click)="updateNote(data.notesId)">Close</button></p>
+        <!--<div class="">  -->
+        <!-- Templete statements -->
+      </div>
     </div>
-  </div>
-  <!-- (click)="updateNote(data)" -->
- 
-</mat-dialog-actions>
+    <!-- (click)="updateNote(data)" -->
+
+  </mat-dialog-actions>
+<!-- </div> -->

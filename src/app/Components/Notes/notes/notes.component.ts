@@ -18,7 +18,7 @@ export class NotesComponent implements OnInit {
   isTrash = true
   @Input() allNotes: any = []
   @Output() UpdateNote = new EventEmitter<any>();
-  constructor(private note: NotesService, private mate: MatDialog,public snackBar: MatSnackBar) { }
+  constructor(public note: NotesService, private mate: MatDialog,public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -26,7 +26,9 @@ export class NotesComponent implements OnInit {
   openDialog(note: any) {
     let dialogRef = this.mate.open(DialogContentComponent, {
       width: '500px',
-      data: note
+      data: note,
+      
+    
     });
     dialogRef.afterClosed().subscribe()
   }
@@ -39,7 +41,7 @@ export class NotesComponent implements OnInit {
       // this.GetAllNotes();
     })
   }
-  //Call this function on trash icon u r done
+  
   trashNote() {
     let reqPayload = {
      // NotesId: this.cardUpdateForm.value.notesId,
