@@ -1,5 +1,5 @@
 <div class="card-bottom" id="bottom">
-  <div class="note-prop">
+  <div class="note-prop" *ngIf="!isTrashComponent">
 
     <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
       matTooltipPosition='below'></div>
@@ -28,8 +28,9 @@
 
     </div>
     <!-- [card]="note" -->
-    <div class="archive prop" role="button" matTooltip="Archive" (click)="archiveNote()"  matTooltipPosition='below'>
+    <div class="archive prop" role="button" matTooltip="Archive" (click)="archiveNote()" matTooltipPosition='below'>
     </div>
+
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
       <mat-icon class="iconpadd">more_vert</mat-icon>
     </button>
@@ -42,7 +43,14 @@
         <p>Add Label</p>
       </button>
     </mat-menu>
-    <!--<div class="">  -->
-    <!-- Templete statements -->
+  </div>
+  <div fxLayout="row" *ngIf="isTrashComponent">
+    <div class="icons">
+      <img class=" iconss prop" (click)="trashNote(card.notesId);" matTooltip="Restore"  src="assets\images\delete.png" alt="">
+    </div>
+    <div class="icons">
+      <img class="iconss prop" (click)="deleteNote(card.notesId);" matTooltip="Delete Forever"  src="assets\images\deleteForeever.png" alt="">
+    </div>
+
   </div>
 </div>

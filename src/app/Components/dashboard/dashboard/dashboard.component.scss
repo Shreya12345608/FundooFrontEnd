@@ -263,3 +263,17 @@ h1.example-app-name {
   padding: 0px;
 }
 
+dilaog 
+::ng-deep .mat-dialog-container{
+    padding: 0px;
+}
+
+.updateDialog{
+    .mat-dialog-container{
+        padding: 0px;
+    } 
+}
+
+
+
+

@@ -113,7 +113,7 @@ export class HttpService {
       })
     }
     console.log(options);
-    return this.http.put(this.BaseUrl + `Notes/${id.NotesId}/Trash`, null,options);
+    return this.http.put(this.BaseUrl + `Notes/${id.NotesId}/Trash`, null, options);
   }
 
 
@@ -129,14 +129,14 @@ export class HttpService {
       })
     }
     console.log(options);
-    return this.http.put(this.BaseUrl + `Notes/${id.NotesId}/Archive`, null,options);
+    return this.http.put(this.BaseUrl + `Notes/${id.NotesId}/Archive`, null, options);
   }
 
 
   UpdateColor(data: any) {
     console.log(data)
-   const id=data.NoteId;
-   const color=data.color;
+    const id = data.NoteId;
+    const color = data.color;
 
     let token = localStorage.getItem('Token');
     let options = {
@@ -145,12 +145,9 @@ export class HttpService {
         'Content-Type': 'application/json'
       })
     }
-    
-    return this.http.put(this.BaseUrl + `Notes/addColor?NoteId=${data.NoteId}&color=${color.replace('#','')}`,data, options);
+
+    return this.http.put(this.BaseUrl + `Notes/addColor?NoteId=${data.NoteId}&color=${color.replace('#', '')}`, data, options);
   }
-
-
-
 
   //delete note
   delete(id: any) {
@@ -163,6 +160,44 @@ export class HttpService {
     }
     return this.http.delete(this.BaseUrl + 'Notes?notesId=' + id, options);
   }
+  //get all label
+  GetAllLabel(url: any) {
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.get(this.BaseUrl + url, options);
+  }
+  //get all label
+  CreateLabel(url: any, data: any) {
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post(this.BaseUrl + url, data, options);
+  }
+  //trash note notes
+  DeleteLabel(id: any) {
+    console.log(id);
+
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      })
+    }
+    console.log(options);
+    return this.http.put(this.BaseUrl + `RemoveLable/${id.LabelId}/Trash`, null, options);
+  }
+
+
 }
 
 

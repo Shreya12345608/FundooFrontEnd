@@ -5,6 +5,7 @@ import { DialogContentComponent } from '../../dialog-content/dialog-content.comp
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataservicesService } from 'src/app/Services/dataservices.service';
 
 @Component({
   selector: 'app-notes',
@@ -18,17 +19,17 @@ export class NotesComponent implements OnInit {
   isTrash = true
   @Input() allNotes: any = []
   @Output() UpdateNote = new EventEmitter<any>();
-  constructor(public note: NotesService, private mate: MatDialog,public snackBar: MatSnackBar) { }
+  constructor(public note: NotesService, private mate: MatDialog, public snackBar: MatSnackBar, private dataservice: DataservicesService) { }
 
   ngOnInit(): void {
-
+    this.dataservice.recievedMessage.subscribe(response => console.log(response))
   }
   openDialog(note: any) {
     let dialogRef = this.mate.open(DialogContentComponent, {
       width: '500px',
       data: note,
       backdropClass: ''
-    
+
     });
     dialogRef.afterClosed().subscribe()
   }
@@ -41,12 +42,12 @@ export class NotesComponent implements OnInit {
       // this.GetAllNotes();
     })
   }
-  
+
   trashNote() {
     let reqPayload = {
-     // NotesId: this.cardUpdateForm.value.notesId,
+      // NotesId: this.cardUpdateForm.value.notesId,
     }
-    this.note.trashNote(reqPayload).subscribe((response:any) => {
+    this.note.trashNote(reqPayload).subscribe((response: any) => {
       this.op = response.data;
       this.UpdateNote.emit(this.op);
     })

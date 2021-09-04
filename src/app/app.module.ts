@@ -36,6 +36,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { IconComponent } from './Components/icon/icon.component';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SearchFilterPipe } from './Pipe/search-filter.pipe';
+import { LabelComponent } from './Components/label/label.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { SearchFilterPipe } from './Pipe/search-filter.pipe';
     GetAllTrashComponent,
     DialogContentComponent,
     IconComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    LabelComponent
   ],
   imports: [
     BrowserModule,

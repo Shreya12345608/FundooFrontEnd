@@ -1,0 +1,48 @@
+<p (click)="GetAllLabel()">get label</p>
+<div class="header">
+    <h4>Edit Labels</h4>
+</div>
+<div class="newLabel" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="container marginAlign ">
+        <button matTooltip="close" class="my-button" (click)="cleartext()"  >
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div [formGroup]="labelForm" >
+        <input type="text" class="" formControlName="labelName" placeholder="Create new label">
+    </div>
+    <div class="container" (click)="createOneLabel()" >
+        <button matTooltip="close" class="my-button" >
+            <mat-icon>check</mat-icon>
+        </button>
+    </div>
+</div>
+<div class="labels" *ngFor="let label of labels" fxFlexAlign="center" fxLayout="row"
+    fxLayoutAlign="space-between center"  >
+
+    <div class="container"   *ngIf=" !editfun">
+        <button class="my-button" type="submit" >
+            <mat-icon>label</mat-icon>
+        </button>
+    </div>
+
+    <div class="container"  *ngIf="editfun" (click)="DeleteLabel(label)" >
+        <button matTooltip="Delete label" class="my-button">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+    <p class="labelName" *ngIf="!editfun" (click)="editfun=!editfun && change=!change"  >
+        {{label.label}}
+    </p>
+   
+    <div class="container " *ngIf="!editfun">
+        <button matTooltip="Rename label" class="my-button">
+            <mat-icon>edit</mat-icon>
+        </button>
+    </div> 
+</div>
+<div class="closeBtn" fxLayoutAlign="end " [mat-dialog-close] (click)="createOneLabel()">
+    <button mat-button type="submit" >
+        Done
+    </button>
+</div>

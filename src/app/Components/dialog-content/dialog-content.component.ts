@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NotesService } from 'src/app/Services/notes/notes.service';
+import { DataservicesService } from 'src/app/Services/dataservices.service';
 
 @Component({
   selector: 'app-dialog-content',
@@ -14,17 +15,20 @@ export class DialogContentComponent implements OnInit {
   pin: boolean = false;
   @Output() UpdateNote = new EventEmitter<any>();
   notesArray: any;
-
+  color: any
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    private noteService: NotesService
-  ) { }
+    private noteService: NotesService, private dataservice: DataservicesService) {
+    console.log(data);
+    this.color = '#'.concat(data.color)
+    console.log(this.color);
+  }
 
   ngOnInit(): void {
     this.cardUpdateForm = this.formBuilder.group({
       notesId: this.data.notesId,
       title: this.data.title,
-      color: this.data.color,
+      // color: this.data.color,
       description: this.data.description
     })
   }
@@ -37,9 +41,10 @@ export class DialogContentComponent implements OnInit {
     //new trash function rhega like  UpdateExistingNote usme sirf note id pass krna  "NotesId: this.cardUpdateForm.value.notesId"
     this.noteService.UpdateExistingNote(reqPayload).subscribe((response: any) => {
       this.op = response.data;
-      this.op.reverse();
-      window.location.reload();
-      this.UpdateNote.emit(this.op);
+      // this.op.reverse();
+      // window.location.reload();
+      //this.UpdateNote.emit(this.op);
+      this.dataservice.sendMessage(this.op)
     })
 
   }

@@ -1,14 +1,15 @@
 <!-- <div [ngStyle]="{'background': '#'.concat(data.color) }"> -->
-  <form [formGroup]="cardUpdateForm">
+  <div [style.background-color]=color>
+  <form [formGroup]="cardUpdateForm" >
     <div class="notesTitle" fxLayout="row" fxLayoutAlign="space-between center">
-      <input class="boreder" mat-dialog-title formControlName="title" placeholder="Title" value="{{data.title}}" />
+      <input class="boreder" mat-dialog-title [style.background-color]=color formControlName="title" placeholder="Title" value="{{data.title}}" />
       <div class="container" fxlayoutAlign="center center">
         <mat-icon class="my-button pinBtn" [class.clicked]="true">push_pin</mat-icon>
       </div>
     </div>
 
     <div>
-      <input mat-dialog-title formControlName="description" placeholder="description" value="{{data.description}}" />
+      <input mat-dialog-title formControlName="description" [style.background-color]=color placeholder="description" value="{{data.description}}" />
     </div>
 
   </form>
@@ -58,7 +59,7 @@
           </button>
 
         </mat-menu>
-        <p class="button" style="padding-left: 150px ;"> <button mat-button formControlName="notesId" mat-dialog-close
+        <p class="button" style="padding-left: 150px ;"> <button mat-button  mat-dialog-close
             (click)="updateNote(data.notesId)">Close</button></p>
         <!--<div class="">  -->
         <!-- Templete statements -->
@@ -67,4 +68,4 @@
     <!-- (click)="updateNote(data)" -->
 
   </mat-dialog-actions>
-<!-- </div> -->
+<!-- </div> --></div>

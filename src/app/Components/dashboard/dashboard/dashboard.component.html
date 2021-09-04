@@ -1,4 +1,4 @@
-<div class="example-container"  [class.example-is-mobile]="mobileQuery.matches">
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="example-toolbar shadow">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
@@ -7,7 +7,7 @@
     <span class="colorfundoo" style="color:#4285F4">F</span>
     <span class="colorfundoo" style="color:#4285F4">un</span>
     <span class="colorfundoo" style="color:#EA4335">doo</span>
-    <div  fxLayout="row" class="search-container">
+    <div fxLayout="row" class="search-container">
       <form>
         <input type="text" placeholder="Search.." name="search">
       </form>
@@ -20,8 +20,7 @@
         <mat-icon class="material-icons" style="color: #440744">search</mat-icon>
       </div> -->
       <div ngClass.xs=three-icons-in-header-smaller-screen>
-        <mat-icon matTooltip="refresh" class="material-icons" style="color:#767676"
-          (click)=refresh()>refresh
+        <mat-icon matTooltip="refresh" class="material-icons" style="color:#767676" (click)=refresh()>refresh
         </mat-icon>
       </div>
       <div ngClass.gt-xs=three-icons-in-header-bigger-screen>
@@ -48,11 +47,7 @@
 
       <mat-menu #profile="matMenu">
 
-        <mat-card-header>
-          <img mat-card-avatar src="https://source.unsplash.com/random/200x200">
-          <!-- <mat-card-title><strong>{{userName}}</strong></mat-card-title>
-                    <mat-card-subtitle>{{userEmail}}</mat-card-subtitle> -->
-        </mat-card-header>
+
 
         <button class="next-button" mat-button (click)=logout()>
           <mat-icon>exit_to_app</mat-icon>&nbsp;<span> Logout</span>
@@ -84,6 +79,23 @@
           <button class="navBtn btnPosition" mat-icon-button (mouseover)="isExpandable=true">
             <mat-icon>edit</mat-icon>
           </button>
+        </a>
+        <!-- labels here -->
+
+        <div class="navlist active" fxLayout="row" (mouseover)="isExpandable=true" fxLayoutAlign="start center"
+          fxLayoutGap="20px" mat-list-item routerLink="/home" *ngFor="let label of labels">
+          <button class="navBtn btnPosition" mat-icon-button>
+            <mat-icon>label</mat-icon>
+          </button>
+          <p class="navName" *ngIf="isExpandable"> {{label.label}}</p>
+        </div>
+
+        <!-- labels here -->
+        <a class="navlist" (click)="openDialog(labels)" fxLayout="row" fxLayoutAlign="start center"
+          (mouseover)="isExpandable=true" fxLayoutGap="20px" mat-list-item routerLink="/home">
+          <button class="navBtn btnPosition" mat-icon-button (mouseover)="isExpandable=true">
+            <mat-icon>edit</mat-icon>
+          </button>
           <p class="navName " *ngIf="isExpandable">Edit Labels</p>
         </a>
         <a class="navlist" fxLayout="row" fxLayoutAlign="start center" (mouseover)="isExpandable=true"
@@ -105,5 +117,6 @@
 
     <mat-sidenav-content>
       <router-outlet></router-outlet>
-    </mat-sidenav-content></mat-sidenav-container>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

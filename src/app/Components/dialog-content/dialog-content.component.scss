@@ -218,8 +218,18 @@ input{
 .mat-tooltip.prop-tip {
     width: fit-content;
     font-size: 5px;
+    overflow: hidden;
+}
+::ng-deep .mat-dialog-container{
+    padding: 0px;
+    overflow: hidden;
 }
 
+.updateDialog{
+    .mat-dialog-container{
+        padding: 0px;
+    } 
+}
 .img-upload:hover{
     background-color: rgba(0,0,0,.15);
 }
