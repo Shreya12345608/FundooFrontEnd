@@ -70,7 +70,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
       data: labels,
   
     });
-
+    console.log(labels);
     diaLogRef.afterClosed().subscribe()
   }
 

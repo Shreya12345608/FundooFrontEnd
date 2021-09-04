@@ -80,17 +80,17 @@
             <mat-icon>edit</mat-icon>
           </button>
         </a>
-        <!-- labels here -->
+       
 
-        <div class="navlist active" fxLayout="row" (mouseover)="isExpandable=true" fxLayoutAlign="start center"
+        <a class="navlist active" fxLayout="row" (mouseover)="isExpandable=true" fxLayoutAlign="start center"
           fxLayoutGap="20px" mat-list-item routerLink="/home" *ngFor="let label of labels">
           <button class="navBtn btnPosition" mat-icon-button>
             <mat-icon>label</mat-icon>
           </button>
           <p class="navName" *ngIf="isExpandable"> {{label.label}}</p>
-        </div>
+        </a>
 
-        <!-- labels here -->
+       
         <a class="navlist" (click)="openDialog(labels)" fxLayout="row" fxLayoutAlign="start center"
           (mouseover)="isExpandable=true" fxLayoutGap="20px" mat-list-item routerLink="/home">
           <button class="navBtn btnPosition" mat-icon-button (mouseover)="isExpandable=true">

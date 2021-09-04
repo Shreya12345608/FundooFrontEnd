@@ -47,7 +47,7 @@ export class LabelComponent implements OnInit {
   GetAllLabel() {
     this.labelService.GetAllLabel('Notes/GelLabel').subscribe((response: any) => {
       this.labels=response.data;
-    console.log(this.labels)
+    console.log(response)
     // this.data.sendMessage(this.labels);
       })
   }
