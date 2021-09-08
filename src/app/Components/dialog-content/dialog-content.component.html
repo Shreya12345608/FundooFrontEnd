@@ -17,8 +17,8 @@
     <div class="card-bottom" id="bottom">
       <div class="note-prop">
 
-        <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
-          matTooltipPosition='below'></div>
+        <div  *ngIf="!Delete" class=" person_add prop" role="button" matTooltip="Collaboration" matTooltipClass="prop-tip"
+        matTooltipPosition='below'> <mat-icon (click)="openDialog(collab)">person_add</mat-icon></div>
         <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
         <div class="back-color prop" [matMenuTriggerFor]="menus" role="button" matTooltip="Change color"
           matTooltipPosition='below'>

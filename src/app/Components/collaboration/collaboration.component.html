@@ -1,0 +1,50 @@
+<div class="collaborator">
+  <mat-card>
+    <mat-card-header>
+      <div class="collab">Collaborators</div>
+    </mat-card-header>
+    <hr>
+    <br>
+    <mat-card-content>
+      <div fxLayout="row" fxLayoutGap="20px">
+        <button mat-mini-fab>
+        </button>
+        <mat-card-content fxFlex class="content">
+         shreya Malviya (Owner)<br>
+        </mat-card-content>
+      </div>
+ 
+    <div class="contentNew" ><mat-card-content style="color:black" fxFlex>{{ReceiverMail}}</mat-card-content></div>
+  
+  
+  
+  
+    <div class="width" fxLayout="row" fxLayoutGap="10px" *ngFor="let data of collabArray ">
+    
+      <div fxFlex="2%"></div>
+      <div fxFlex="78%"  fxLayout="column" fxLayoutAlign="start start"  class="inputDiv">
+            <span class="contentNew1" style="color:black">{{data.receiverMail}}</span>
+        </div>
+      <div fxFlex="10%" fxLayoutAlign="end center">
+          <i class="material-icons icon" (click)="deleteCollaborator(data)">cancel</i>
+      </div>
+    </div>
+    <div class="person" fxLayout="row" ><button mat-mini-fab disabled><mat-icon>person_add</mat-icon></button>
+      <input class="place"  placeholder="Enter email" [(ngModel)]="ReceiverMail"  >
+  
+      </div>
+  
+  
+  
+  </mat-card-content>
+    
+  <mat-card-footer class="collabcolor">
+    <div  class="buttons">
+          <button mat-button (click)=close() >Cancel</button>
+          <button mat-button (click)=addCollaboration() >Save</button>
+    </div>
+    </mat-card-footer>
+  
+  </mat-card>
+  
+</div>

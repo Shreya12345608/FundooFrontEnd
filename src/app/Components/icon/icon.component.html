@@ -1,15 +1,16 @@
 <div class="card-bottom" id="bottom">
   <div class="note-prop" *ngIf="!isTrashComponent">
 
-    <div class="reminder prop" role="button" matTooltip="Remind me" matTooltipClass="prop-tip"
-      matTooltipPosition='below'></div>
+  
+    <div  *ngIf="!Delete" class=" person_add prop" role="button" matTooltip="Collaboration" matTooltipClass="prop-tip"
+      matTooltipPosition='below'> <mat-icon (click)="openDialog(card)">person_add</mat-icon></div>
     <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
     <div class="back-color prop" [matMenuTriggerFor]="menus" role="button" matTooltip="Change color"
       matTooltipPosition='below'>
       <mat-menu #menus="matMenu">
         <button mat-menu-item>
 
-          <!-- (click)="deleteNote(note.notesId)" -->
+          <!-- (click)="deleteNote(note.notesId)" --> 
           <p class="iconcolrcss hite" (click)="updateColor(card.notesId, '#FFFFFF')"></p>
           <p class="iconcolrcss red" (click)="updateColor(card.notesId, '#F28B82')"></p>
           <p class="iconcolrcss orange" (click)="updateColor(card.notesId,'#FBBC04')"></p>
@@ -39,8 +40,8 @@
         <!-- (click)="deleteNote(note.notesId)" -->
         <p (click)="trashNote(card.notesId);">Delete Note</p>
       </button>
-      <button mat-menu-item disabled>
-        <p>Add Label</p>
+      <button mat-menu-item >
+        <p >Add Label</p>
       </button>
     </mat-menu>
   </div>

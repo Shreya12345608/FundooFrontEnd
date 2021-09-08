@@ -7,7 +7,7 @@
     overflow:hidden;
     // Addition lines for 2 line or multiline ellipsis
     display: -webkit-box !important;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     white-space: normal;}
   .card {
@@ -39,7 +39,8 @@
     visibility: hidden;
   
   }
-
+.collab{border: 1px solid #aaa;
+  border-radius: 4px;}
   .card:hover .card-bottom,
 .card-bottom:hover {
   visibility: visible;

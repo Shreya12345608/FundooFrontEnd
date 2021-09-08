@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DataservicesService } from 'src/app/Services/dataservices.service';
-
+import { CollaborationService } from 'src/app/Services/collaboration/collaboration.service';
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
@@ -15,14 +15,19 @@ import { DataservicesService } from 'src/app/Services/dataservices.service';
 export class NotesComponent implements OnInit {
   token: any;
   op: any
+  collabArray: any =[]
   iconVisible: any
   isTrash = true
   @Input() allNotes: any = []
   @Output() UpdateNote = new EventEmitter<any>();
-  constructor(public note: NotesService, private mate: MatDialog, public snackBar: MatSnackBar, private dataservice: DataservicesService) { }
+  constructor(public note: NotesService,
+    private mate: MatDialog, public snackBar: MatSnackBar,
+    private dataservice: DataservicesService,
+    private collab: CollaborationService) { }
 
   ngOnInit(): void {
     this.dataservice.recievedMessage.subscribe(response => console.log(response))
+    this.GetAllCollaboration();
   }
   openDialog(note: any) {
     let dialogRef = this.mate.open(DialogContentComponent, {
@@ -33,6 +38,8 @@ export class NotesComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe()
   }
+
+  
   deleteNote(note: any) {
     let data = {
       isTrash: this.isTrash
@@ -70,11 +77,22 @@ export class NotesComponent implements OnInit {
 
     })
   }
-  mouseEnter() {
-    this.iconVisible = true;
+
+  GetAllCollaboration() {
+    this.collab.GetAllCollaboration('Notes/GelCollaborators').subscribe((response: any) => {
+      console.log(response);
+      this.collabArray = response.data;
+      //this.collabArray.reverse();
+      console.log(this.collabArray);
+
+    })
   }
 
-  mouseLeave() {
-    this.iconVisible = false;
+  deleteCollaborator(collaba: any) {
+    this.collab.DeleteCollaboration(collaba.collaborationId).subscribe(response => {
+      console.log(response);
+      this.GetAllCollaboration();
+    })
   }
+
 }

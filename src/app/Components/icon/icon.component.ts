@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NotesService } from 'src/app/Services/notes/notes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { GetAllArchiveComponent } from '../getAllArchive/get-all-archive/get-all-archive.component';
 import { GetAllTrashComponent } from '../getAllTrash/get-all-trash/get-all-trash.component';
 import { NotesComponent } from '../Notes/notes/notes.component';
+import { CollaborationComponent } from '../collaboration/collaboration.component';
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',
@@ -16,12 +17,14 @@ export class IconComponent implements OnInit {
   colorpanel!: FormGroup;
   @Input() card: any;
   op: any
+  Delete: any;
+ // @Input() collab:any
   isNotesComponent: boolean = false;
   isTrashComponent: boolean = false;
   isArchiveComponent: boolean = false;
   @Output() UpdateNote = new EventEmitter<any>();
   constructor(public noteService: NotesService, @Inject(MAT_DIALOG_DATA) public data: any,
-    private formBuilder: FormBuilder, private snackBar: MatSnackBar, private route: ActivatedRoute) {
+    private formBuilder: FormBuilder, private snackBar: MatSnackBar, private route: ActivatedRoute, public dialog: MatDialog) {
 
   }
   ngOnInit(): void {
@@ -100,4 +103,17 @@ export class IconComponent implements OnInit {
       this.UpdateNote.emit(this.op);
     })
   }
+
+ 
+  openDialog(collab: any) {
+    let diaLogRef = this.dialog.open(CollaborationComponent, {
+      width: "700px",
+      maxWidth: "auto",
+      data: collab
+
+    });
+    console.log(collab);
+    diaLogRef.afterClosed().subscribe()
+  }
+
 }

@@ -1,16 +1,25 @@
-<div  style="flex-direction: row;display: flex;margin: 10px;"
-  *ngFor="let note of allNotes;">
+<div  style="margin:5px;"   *ngFor="let note of allNotes;">
   <mat-card class="card" ng-class="" [ngStyle]="{'background': '#'.concat(note.color) }">
-    <div (click)="openDialog(note)" class="mainBlock"> 
+    <div (click)="openDialog(note)"class="mainBlock" [style.background-color]="note.color"> 
       <div id="title" #title contenteditable="false" aria-multiline="true" role="textbox" class="font n1" dir="ltr">
         <strong>{{note.title}}</strong>
       </div>
       <div id="description" #description contenteditable="false" aria-multiline="true" role="textbox" class="font n1"
         dir="ltr">{{note.description}}</div>
+        
       <!-- [hidden]="!iconVisible" -->
+      <div style="padding-top: 15px;" class="collab-array" *ngFor="let collab of collabArray;">
+        <div *ngIf="note.notesId==collab.notesId" id="collab" #collaborator  contenteditable="false" 
+        aria-multiline="true" role="textbox" class="collab"
+        dir="ltr">{{collab.receiverMail}}
+        <img class=" iconss prop" (click)="deleteCollaborator(collab);"  style="width: 15px" matTooltip="Delete"  src="assets\images\cancel.png" alt="">
+        </div>
 
+        </div>
     </div>
+   
     <div class="card-bottom">
+     
       <app-icon [card]="note"></app-icon>
     </div>
   </mat-card>

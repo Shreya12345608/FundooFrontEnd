@@ -15,8 +15,9 @@ export class LabelService {
     return this.http.CreateLabel("Notes/CreateLabel", data);
   }
 
-  DeleteLabel(data:any){
-    return this.http.DeleteLabel("Notes/"+data+"/Label");
+  DeleteLabel(data: any) {
+    return this.http.DeleteLabel("Notes/RemoveLable?LabelId=" + data);
   }
 }
+
 

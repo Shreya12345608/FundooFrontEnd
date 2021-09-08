@@ -1,8 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit, Output, EventEmitter, Inject, Input } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NotesService } from 'src/app/Services/notes/notes.service';
 import { DataservicesService } from 'src/app/Services/dataservices.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+import { CollaborationComponent } from '../collaboration/collaboration.component';
 
 @Component({
   selector: 'app-dialog-content',
@@ -16,9 +19,12 @@ export class DialogContentComponent implements OnInit {
   @Output() UpdateNote = new EventEmitter<any>();
   notesArray: any;
   color: any
+  Delete: any;
+  @Input() collab:any
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    private noteService: NotesService, private dataservice: DataservicesService) {
+    private noteService: NotesService, private dataservice: DataservicesService,
+    private snackBar: MatSnackBar, private route: ActivatedRoute, public dialog: MatDialog) {
     console.log(data);
     this.color = '#'.concat(data.color)
     console.log(this.color);
@@ -103,5 +109,15 @@ export class DialogContentComponent implements OnInit {
   }
   togglePin() {
     this.pin = !this.pin;
+  }
+  openDialog(collab: any) {
+    let diaLogRef = this.dialog.open(CollaborationComponent, {
+      width: "700px",
+      maxWidth: "auto",
+      data: collab
+
+    });
+    console.log(collab);
+    diaLogRef.afterClosed().subscribe()
   }
 }

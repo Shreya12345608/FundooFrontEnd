@@ -183,9 +183,8 @@ export class HttpService {
     return this.http.post(this.BaseUrl + url, data, options);
   }
   //trash note notes
-  DeleteLabel(id: any) {
-    console.log(id);
 
+  DeleteLabel(url: any) {
     let token = localStorage.getItem('Token');
     let options = {
       headers: new HttpHeaders({
@@ -193,10 +192,46 @@ export class HttpService {
         'Content-Type': 'application/json'
       })
     }
-    console.log(options);
-    return this.http.put(this.BaseUrl + `RemoveLable/${id.LabelId}/Trash`, null, options);
+    console.log(url)
+    return this.http.delete(this.BaseUrl + url, options);
   }
 
+
+
+  //Get All Collaboration
+  GetAllCollaboration(url: any) {
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.get(this.BaseUrl + url, options);
+  }
+  //Create Collaboration
+  CreateCollaboration(url: any, data: any) {
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post(this.BaseUrl + url, data, options);
+  }
+  //trash note notes
+
+  DeleteCollaboration(url: any) {
+    let token = localStorage.getItem('Token');
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.delete(this.BaseUrl + url, options);
+  }
 
 }
 
